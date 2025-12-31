@@ -1,0 +1,84 @@
+{
+  "founder": {
+    "name": "Dhruv Gupta",
+    "title": "Founder & Chef",
+    "location": "Sherghati, Bihar",
+    "established": "September 2023",
+    "image": "/images/founder/dhruv-gupta.jpg",
+    "story": [
+      "Dhruv Gupta, a young entrepreneur from Sherghati, Bihar, refused to settle for the ordinary. Tired of the 9-to-5 rat race, he believed in the philosophy: 'Why be an employee when you can be an employer?' In September 2023, with dreams bigger than his pocket, he started with a small stall in Naya Bazar.",
+      "His first venture featured 'Pita' - a traditional Bihari delicacy made from rice and lentils, fried to perfection. While the dish held cultural significance, the market response was lukewarm. For two months, Dhruv watched as customers passed by, unaware of this hidden gem. It became clear - sometimes the best recipes need the right audience.",
+      "Undeterred by initial setbacks, Dhruv pivoted to momos - a universally loved street food. But these weren't ordinary momos. He infused them with the same passion and quality standards he maintained for his traditional recipes. The small stall began attracting attention, and soon 'Momos Magic' became the talk of Sherghati.",
+      "As demand skyrocketed, Dhruv introduced innovations that set Momos Magic apart: Kurkure Momos - a crispy, crunchy variation nobody else offered; Pizza Momos - fusion creativity that became an instant hit; and a Premium Stall Design - transforming from basic to branded excellence.",
+      "From that humble stall in September 2023 to a premium branded experience in 2025, Momos Magic now stands as testament to Dhruv's belief: 'Better to be a small owner than someone else's employee.' The magic continues to spread, one momo at a time."
+    ]
+  },
+  "philosophy": {
+    "title": "Our Philosophy",
+    "description": "At Momos Magic, we believe in three core principles that guide everything we do:",
+    "values": [
+      {
+        "title": "Quality Over Quantity",
+        "description": "Every momo is handcrafted with premium ingredients. We never compromise on quality, even if it means serving fewer customers.",
+        "icon": "⭐"
+      },
+      {
+        "title": "Innovation with Tradition",
+        "description": "We respect traditional recipes while constantly innovating. Our Kurkure and Pizza Momos are perfect examples of this balance.",
+        "icon": "💡"
+      },
+      {
+        "title": "Customer First",
+        "description": "Your satisfaction is our success. We listen to feedback and continuously improve our offerings based on what you love.",
+        "icon": "❤️"
+      },
+      {
+        "title": "Hygiene & Safety",
+        "description": "FSSAI certified kitchen with strict hygiene protocols. Your health and safety are our top priorities.",
+        "icon": "✅"
+      },
+      {
+        "title": "Fair Pricing",
+        "description": "Premium quality at affordable prices. We believe everyone deserves to enjoy great food without breaking the bank.",
+        "icon": "💰"
+      },
+      {
+        "title": "Community Impact",
+        "description": "We source locally, employ locally, and give back to our community. Your purchase supports local families.",
+        "icon": "🤝"
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "date": "September 2023",
+      "title": "The Beginning",
+      "description": "Started with a small stall in Naya Bazar, Sherghati, selling traditional Bihari Pita"
+    },
+    {
+      "date": "November 2023",
+      "title": "The Pivot",
+      "description": "Switched to momos after understanding market demand. First batch sold out in 2 hours!"
+    },
+    {
+      "date": "January 2024",
+      "title": "Innovation Begins",
+      "description": "Introduced Kurkure Momos - our signature crispy variation that became an instant hit"
+    },
+    {
+      "date": "June 2024",
+      "title": "Recognition",
+      "description": "Awarded 'Best Quality Food in City' by District Magistrate. FSSAI certification received"
+    },
+    {
+      "date": "December 2024",
+      "title": "Expansion",
+      "description": "Upgraded to premium branded stall. Introduced Pizza Momos and expanded menu to 15+ varieties"
+    },
+    {
+      "date": "March 2025",
+      "title": "Digital Presence",
+      "description": "Launched website and online ordering. Reached 2000+ positive reviews with 4.9/5 rating"
+    }
+  ]
+}

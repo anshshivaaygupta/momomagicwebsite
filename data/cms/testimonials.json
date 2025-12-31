@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "test-1",
+      "name": "Rohan Kumar",
+      "location": "Sherghati",
+      "rating": 5,
+      "date": "2024-12-15",
+      "text": "Best momos in Sherghati! The Kurkure Momos are absolutely amazing. Crispy outside, juicy inside. I visit at least twice a week. Highly recommended!",
+      "image": "/images/testimonials/customer-1.jpg",
+      "isFeatured": true,
+      "isVerified": true
+    },
+    {
+      "id": "test-2",
+      "name": "Priya Singh",
+      "location": "Gaya",
+      "rating": 5,
+      "date": "2024-11-20",
+      "text": "Traveled from Gaya just to try these momos after hearing so much about them. Worth every kilometer! The Pizza Momos are unique and delicious.",
+      "image": "/images/testimonials/customer-2.jpg",
+      "isFeatured": true,
+      "isVerified": true
+    }
+  ],
+  "stats": {
+    "totalReviews": 2000,
+    "averageRating": 4.9,
+    "fiveStarCount": 1850,
+    "fourStarCount": 130,
+    "threeStarCount": 15,
+    "twoStarCount": 3,
+    "oneStarCount": 2
+  }
+}

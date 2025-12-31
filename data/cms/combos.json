@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "id": "combo-1",
+      "name": "Family Pack",
+      "description": "Perfect for family gatherings - 20 momos + 2 dips",
+      "items": [
+        "10 Kurkure Momos",
+        "10 Pizza Momos",
+        "Schezwan Dip",
+        "Mayonnaise Dip"
+      ],
+      "originalPrice": 300,
+      "discountedPrice": 250,
+      "savings": 50,
+      "image": "/images/combos/family-pack.jpg",
+      "isAvailable": true,
+      "isFeatured": true
+    },
+    {
+      "id": "combo-2",
+      "name": "Couple Special",
+      "description": "Romantic evening combo - 10 momos + 2 drinks",
+      "items": [
+        "5 Kurkure Momos",
+        "5 Pizza Momos",
+        "2 Cold Drinks"
+      ],
+      "originalPrice": 200,
+      "discountedPrice": 170,
+      "savings": 30,
+      "image": "/images/combos/couple-special.jpg",
+      "isAvailable": true,
+      "isFeatured": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "albums": [
+    {
+      "id": "album-1",
+      "name": "Food Photography",
+      "description": "Our delicious momos in all their glory"
+    },
+    {
+      "id": "album-2",
+      "name": "Stall & Setup",
+      "description": "Our premium branded stall"
+    },
+    {
+      "id": "album-3",
+      "name": "Customer Moments",
+      "description": "Happy customers enjoying our momos"
+    },
+    {
+      "id": "album-4",
+      "name": "Behind the Scenes",
+      "description": "How we make the magic happen"
+    }
+  ],
+  "images": [
+    {
+      "id": "img-1",
+      "albumId": "album-1",
+      "url": "/images/gallery/kurkure-momos-1.jpg",
+      "title": "Kurkure Momos",
+      "description": "Our signature crispy kurkure momos",
+      "uploadedAt": "2024-01-15"
+    },
+    {
+      "id": "img-2",
+      "albumId": "album-1",
+      "url": "/images/gallery/pizza-momos-1.jpg",
+      "title": "Pizza Momos",
+      "description": "Fusion pizza-style momos",
+      "uploadedAt": "2024-01-15"
+    },
+    {
+      "id": "img-3",
+      "albumId": "album-2",
+      "url": "/images/gallery/stall-exterior.jpg",
+      "title": "Our Stall",
+      "description": "Premium branded stall in Naya Bazar",
+      "uploadedAt": "2024-01-10"
+    }
+  ]
+}

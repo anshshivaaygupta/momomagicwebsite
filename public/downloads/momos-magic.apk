@@ -1,0 +1,14 @@
+PLACEHOLDER APK FILE
+====================
+
+This is a placeholder file. Replace this with the actual Momos Magic Android APK file.
+
+To replace:
+1. Build your Android app and generate a signed APK
+2. Replace this file with your actual momos-magic.apk
+3. The download button will automatically serve the real APK
+
+File should be:
+- Properly signed with release keystore
+- Tested on multiple Android devices
+- Optimized for size (recommended < 50 MB)

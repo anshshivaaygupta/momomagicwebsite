@@ -1,0 +1,32 @@
+{
+  "investment": {
+    "franchiseFee": 50000,
+    "initialInventory": 25000,
+    "kitchenSetup": {
+      "min": 100000,
+      "max": 200000
+    },
+    "totalEstimate": {
+      "min": 175000,
+      "max": 275000
+    }
+  },
+  "royalty": {
+    "type": "percentage",
+    "percentage": 5,
+    "description": "5% of monthly revenue"
+  },
+  "support": [
+    "Complete training program",
+    "Recipe and preparation guidance",
+    "Marketing materials and branding",
+    "Ongoing operational support",
+    "Supply chain assistance"
+  ],
+  "requirements": [
+    "Minimum 200 sq ft space",
+    "Location in high-traffic area",
+    "Commitment to quality standards",
+    "Passion for food business"
+  ]
+}

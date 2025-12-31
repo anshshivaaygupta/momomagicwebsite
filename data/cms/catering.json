@@ -1,0 +1,31 @@
+{
+  "packages": [
+    {
+      "id": "catering-1",
+      "name": "Birthday Party Package",
+      "description": "Perfect for birthday celebrations",
+      "servings": "50-100 people",
+      "items": [
+        "100 Assorted Momos",
+        "Dips & Sauces",
+        "Disposable Plates & Napkins"
+      ],
+      "price": 5000,
+      "image": "/images/catering/birthday.jpg"
+    },
+    {
+      "id": "catering-2",
+      "name": "Corporate Event Package",
+      "description": "Ideal for office parties and corporate events",
+      "servings": "100-200 people",
+      "items": [
+        "200 Assorted Momos",
+        "Premium Dips",
+        "Serving Staff",
+        "Setup & Cleanup"
+      ],
+      "price": 10000,
+      "image": "/images/catering/corporate.jpg"
+    }
+  ]
+}

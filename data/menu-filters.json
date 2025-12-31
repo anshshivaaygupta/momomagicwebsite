@@ -1,0 +1,86 @@
+{
+  "priceRange": {
+    "min": 0,
+    "max": 250,
+    "step": 10
+  },
+  "categories": [
+    {
+      "id": "steamed",
+      "name": "Steamed Perfection",
+      "enabled": true
+    },
+    {
+      "id": "fried",
+      "name": "Crispy Fried Delights",
+      "enabled": true
+    },
+    {
+      "id": "kurkure",
+      "name": "Magic Signatures",
+      "enabled": true
+    },
+    {
+      "id": "pizza",
+      "name": "Fusion Innovations",
+      "enabled": true
+    },
+    {
+      "id": "combo",
+      "name": "Combo Platters",
+      "enabled": true
+    }
+  ],
+  "spiceLevels": [
+    {
+      "id": "mild",
+      "name": "Mild",
+      "emoji": "😊",
+      "enabled": true
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "emoji": "🌶️",
+      "enabled": true
+    },
+    {
+      "id": "hot",
+      "name": "Hot",
+      "emoji": "🔥",
+      "enabled": true
+    },
+    {
+      "id": "extra-magic",
+      "name": "Extra Magic",
+      "emoji": "✨",
+      "enabled": true
+    }
+  ],
+  "fillingTypes": [
+    {
+      "id": "veg",
+      "name": "Veg",
+      "emoji": "🌱",
+      "enabled": true
+    },
+    {
+      "id": "paneer",
+      "name": "Paneer",
+      "emoji": "🧀",
+      "enabled": true
+    },
+    {
+      "id": "soya",
+      "name": "Soya",
+      "emoji": "💪",
+      "enabled": true
+    },
+    {
+      "id": "cheese-corn",
+      "name": "Cheese Corn",
+      "emoji": "🌽",
+      "enabled": true
+    }
+  ]
+}

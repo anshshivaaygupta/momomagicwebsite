@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-10-27T21:07:03.783Z",
+  "modules": {
+    "hero": {
+      "populated": true,
+      "items": 1
+    },
+    "menu": {
+      "populated": true,
+      "items": 8
+    },
+    "about": {
+      "populated": true,
+      "items": 1
+    },
+    "contact": {
+      "populated": true,
+      "items": 1
+    },
+    "testimonials": {
+      "populated": true,
+      "items": 2
+    },
+    "gallery": {
+      "populated": true,
+      "items": 3
+    },
+    "combos": {
+      "populated": true,
+      "items": 2
+    },
+    "catering": {
+      "populated": true,
+      "items": 2
+    },
+    "franchise": {
+      "populated": true,
+      "items": 1
+    }
+  },
+  "totalModules": 9,
+  "totalItems": 21
+}

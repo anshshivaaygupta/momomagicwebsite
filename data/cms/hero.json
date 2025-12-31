@@ -1,0 +1,33 @@
+{
+  "headline": "From Humble Stall to Culinary Legend",
+  "subheadline": "Experience the Magic That Transformed Sherghati's Street Food Scene",
+  "primaryButton": {
+    "text": "Order Now",
+    "link": "/menu"
+  },
+  "secondaryButton": {
+    "text": "Our Story",
+    "link": "/about"
+  },
+  "backgroundType": "video",
+  "backgroundVideo": "/videos/hero-bg.mp4",
+  "backgroundImage": "/images/hero-poster.jpg",
+  "achievements": [
+    {
+      "text": "⭐ 4.9/5 Rating",
+      "subtext": "2000+ Reviews"
+    },
+    {
+      "text": "🏆 Award Winner",
+      "subtext": "Best Quality Food 2024"
+    },
+    {
+      "text": "✅ FSSAI Certified",
+      "subtext": "License: 20424201001152"
+    },
+    {
+      "text": "🌱 100% Vegetarian",
+      "subtext": "Pure & Hygienic"
+    }
+  ]
+}

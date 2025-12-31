@@ -1,0 +1,28 @@
+{
+  "address": {
+    "line1": "Naya Bazar, Near Post Office",
+    "city": "Sherghati",
+    "state": "Bihar",
+    "pincode": "824211",
+    "country": "India"
+  },
+  "phone": "+91 9955955191",
+  "email": "info@momomagics.com",
+  "website": "www.momomagics.com",
+  "hours": {
+    "weekdays": "10:00 AM - 10:00 PM",
+    "weekends": "10:00 AM - 10:00 PM",
+    "note": "Open Every Day"
+  },
+  "social": {
+    "facebook": "https://facebook.com/momomagicsherghati",
+    "instagram": "https://instagram.com/momomagicsherghati",
+    "youtube": "https://youtube.com/@momomagicsherghati",
+    "whatsapp": "+919955955191"
+  },
+  "googleMaps": {
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.5!2d85.1234!3d24.5678",
+    "latitude": 24.5678,
+    "longitude": 85.1234
+  }
+}
