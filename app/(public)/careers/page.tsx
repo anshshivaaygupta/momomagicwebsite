@@ -1,10 +1,15 @@
 'use client';
+import { openWhatsApp, BUSINESS } from '@/lib/business';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { jobCategories, workBenefits } from '@/data/legalData';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/careers.json';
+import { jobCategories as defaultCategories, workBenefits } from '@/data/legalData';
 
 export default function CareersPage() {
+  const {jobs}=useContent('careers',seed);
+  const jobCategories=jobs.filter(j=>j.isActive);
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -28,29 +33,10 @@ export default function CareersPage() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        city: '',
-        position: '',
-        experience: '',
-        expectedSalary: '',
-        noticePeriod: '',
-        motivation: '',
-        skills: ''
-      });
-
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 2000);
+    if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''))) { alert('Enter a valid 10-digit Indian mobile number.'); return; }
+    openWhatsApp('Job application',{'Name':formData.fullName,'Phone':formData.phone,'Email':formData.email,'City':formData.city,'Position':formData.position,'Experience':formData.experience,'Expected salary':formData.expectedSalary,'Notice period':formData.noticePeriod,'Motivation':formData.motivation,'Skills':formData.skills});
   };
 
   return (
@@ -312,7 +298,7 @@ export default function CareersPage() {
                   disabled={isSubmitting}
                   className="bg-premium-orange text-pitch-black px-12 py-4 rounded-lg font-bold text-lg hover:bg-golden-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                  {isSubmitting ? 'Submitting...' : 'Continue to WhatsApp'}
                 </button>
                 <p className="text-gray-400 mt-4">
                   We'll contact you via WhatsApp within 24 hours
@@ -385,3 +371,4 @@ export default function CareersPage() {
     </div>
   );
 }
+

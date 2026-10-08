@@ -1,22 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
+import fs from '@/lib/storage';
 import path from 'path';
 
-function requireAuth(request: NextRequest) {
-  return true;
-}
+import {requireAuth} from '@/lib/auth/auth';
 
-function getDataFilePath() {
+async function getDataFilePath() {
   const dataDir = path.join(process.cwd(), 'data', 'cms');
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+  if (!(await fs.exists(dataDir))) {
+    await fs.mkdir(dataDir, { recursive: true });
   }
   return path.join(dataDir, 'franchise.json');
 }
 
-function readFranchiseData() {
-  const filePath = getDataFilePath();
-  if (!fs.existsSync(filePath)) {
+async function readFranchiseData() {
+  const filePath = await getDataFilePath();
+  if (!(await fs.exists(filePath))) {
     const defaultData = {
       settings: {
         investment: {
@@ -45,25 +43,26 @@ function readFranchiseData() {
       testimonials: [],
       documents: [],
     };
-    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2));
+    await fs.writeFile(filePath, JSON.stringify(defaultData, null, 2));
     return defaultData;
   }
-  const data = fs.readFileSync(filePath, 'utf-8');
+  const data = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(data);
 }
 
-function writeFranchiseData(data: any) {
-  const filePath = getDataFilePath();
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+async function writeFranchiseData(data: any) {
+  const filePath = await getDataFilePath();
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
-    if (!requireAuth(request)) {
+    if (!await requireAuth()) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const data = readFranchiseData();
+    const data = await readFranchiseData();
     return NextResponse.json(data);
   } catch (error) {
     console.error('Error fetching franchise data:', error);
@@ -72,15 +71,16 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
-    if (!requireAuth(request)) {
+    if (!await requireAuth()) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const body = await request.json();
     const { type, data: itemData } = body;
 
-    const franchiseData = readFranchiseData();
+    const franchiseData = await readFranchiseData();
 
     switch (type) {
       case 'settings':
@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Invalid type' }, { status: 400 });
     }
 
-    writeFranchiseData(franchiseData);
+    await writeFranchiseData(franchiseData);
     return NextResponse.json({ success: true, data: franchiseData });
   } catch (error) {
     console.error('Error saving franchise data:', error);
@@ -157,8 +157,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
-    if (!requireAuth(request)) {
+    if (!await requireAuth()) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -170,7 +171,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Type and ID are required' }, { status: 400 });
     }
 
-    const franchiseData = readFranchiseData();
+    const franchiseData = await readFranchiseData();
 
     switch (type) {
       case 'location':
@@ -193,10 +194,11 @@ export async function DELETE(request: NextRequest) {
         return NextResponse.json({ error: 'Invalid type' }, { status: 400 });
     }
 
-    writeFranchiseData(franchiseData);
+    await writeFranchiseData(franchiseData);
     return NextResponse.json({ success: true, data: franchiseData });
   } catch (error) {
     console.error('Error deleting franchise data:', error);
     return NextResponse.json({ error: 'Failed to delete franchise data' }, { status: 500 });
   }
 }
+

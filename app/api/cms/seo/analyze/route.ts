@@ -1,6 +1,8 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const { searchParams } = new URL(request.url);
     const pageSlug = searchParams.get('pageSlug');
@@ -113,3 +115,4 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+

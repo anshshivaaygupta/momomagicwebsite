@@ -1,10 +1,12 @@
 'use client';
 
+import {useContent} from '@/lib/useContent';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export const Header: React.FC = () => {
+  const content=useContent<any>('logo',{logos:{headerLogo:'/logo.png'}});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
 
@@ -37,7 +39,7 @@ export const Header: React.FC = () => {
           {/* Logo - Left Side with Premium Spacing */}
           <Link href="/" className="flex items-center pl-2 lg:pl-4">
             <Image 
-              src="/logo.png" 
+              src={content.logos?.headerLogo||"/logo.png"} 
               alt="Momos Magic Logo" 
               width={200} 
               height={60}
@@ -198,3 +200,4 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+

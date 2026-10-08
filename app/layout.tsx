@@ -1,24 +1,9 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -42,7 +27,7 @@ export const metadata: Metadata = {
     "food delivery Sherghati",
     "best food in Sherghati",
   ],
-  authors: [{ name: "Momos Magic", url: "https://www.momomegics.com" }],
+  authors: [{ name: "Momos Magic", url: "https://momo-magic-website.vercel.app" }],
   creator: "Momos Magic",
   publisher: "Momos Magic",
   formatDetection: {
@@ -50,18 +35,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.momomegics.com"),
+  metadataBase: new URL("https://momo-magic-website.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
     description: "Award-winning momos, FSSAI certified, 100% vegetarian. First to introduce Kurkure Momos in Bihar.",
-    url: "https://www.momomegics.com",
+    url: "https://momo-magic-website.vercel.app",
     siteName: "Momos Magic",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/stock/platter.jpg",
         width: 1200,
         height: 630,
         alt: "Momos Magic - Best Momos in Sherghati",
@@ -74,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
     description: "Award-winning momos, FSSAI certified, 100% vegetarian. First to introduce Kurkure Momos in Bihar.",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/images/stock/platter.jpg"],
   },
   robots: {
     index: true,
@@ -86,9 +71,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 
@@ -104,10 +86,11 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased`}
+        className={"antialiased"}
       >
         {children}
       </body>
     </html>
   );
 }
+

@@ -315,12 +315,12 @@ export default function TestimonialsManagementPage() {
                     contentId={editingTestimonial.id}
                     contentType="testimonial"
                     analytics={{
-                      views: Math.floor(Math.random() * 5000),
-                      engagement: Math.floor(Math.random() * 100),
-                      conversions: Math.floor(Math.random() * 200),
+                      views: 0,
+                      engagement: 0,
+                      conversions: 0,
                       performance: {
-                        loadTime: Math.random() * 2,
-                        seoScore: Math.floor(Math.random() * 100),
+                        loadTime: 0,
+                        seoScore: 0,
                       },
                     }}
                   />
@@ -472,3 +472,4 @@ export default function TestimonialsManagementPage() {
     </div>
   );
 }
+

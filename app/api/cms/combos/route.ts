@@ -3,6 +3,7 @@ import { requireAuth } from '@/lib/auth/auth';
 import { query, queryOne } from '@/lib/db';
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -16,7 +17,7 @@ export async function GET(request: NextRequest) {
         ? JSON.parse(result.content_data) 
         : result.content_data;
       
-      return NextResponse.json(contentData.combos ? contentData : { combos: [] });
+      return NextResponse.json({combos:(contentData.combos||[]).map((c:any)=>({...c,items:c.items||(c.includedItems||[]).map((itemName:string)=>({itemName,quantity:1})),originalPrice:c.originalPrice??c.regularPrice??0,discountedPrice:c.discountedPrice??c.comboPrice??0,discount:c.discount??Math.round(100*(1-(c.comboPrice||0)/(c.regularPrice||1)))}))});
     }
 
     return NextResponse.json({ combos: [] });
@@ -30,11 +31,15 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
     const body = await request.json();
     const { combo } = body;
+    if(!combo||!combo.id||!combo.name)return NextResponse.json({error:'Invalid combo'},{status:400});
+    combo.regularPrice=combo.originalPrice??combo.regularPrice;combo.comboPrice=combo.discountedPrice??combo.comboPrice;combo.includedItems=combo.items?.map((i:any)=>i.quantity>1?`${i.quantity} × ${i.itemName}`:i.itemName)||combo.includedItems||[];
+    combo.category=combo.category||'family';combo.serves=combo.serves||'Confirm with business';combo.preparationTime=combo.preparationTime||20;
 
     const result = await queryOne(
       'SELECT content_data FROM cms_content WHERE page_name = ?',
@@ -94,6 +99,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -150,3 +156,4 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+

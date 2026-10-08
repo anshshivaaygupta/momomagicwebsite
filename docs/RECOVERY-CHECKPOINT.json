@@ -1,0 +1,606 @@
+{
+  "status": "INCOMPLETE_CHECKPOINT",
+  "reason": "Execution environment went offline before remaining local files could be uploaded and before the last production retest could be read.",
+  "productionUrl": "https://momo-magic-website.vercel.app",
+  "lastDeployment": "dpl_2vqTmnBfrnJ2CFLT66Y1L7gMJiER",
+  "localChecks": {
+    "publicAndApi": 64,
+    "adminAndExtra": 39,
+    "passed": 103
+  },
+  "warning": "This branch is an incomplete recovery checkpoint, not a release. Do not deploy it or merge it into main until the remaining files are recovered and verified.",
+  "remainingFiles": [
+    {
+      "path": "data/cms/catering.json",
+      "size": 5902,
+      "sha": "1e6103b92f28c8137e035429000578d09d49b9a4"
+    },
+    {
+      "path": "data/cms/hero.json",
+      "size": 786,
+      "sha": "43cc5345587c44f20d7fccaba6c7fb6d9bdcf3bc"
+    },
+    {
+      "path": "data/cms/menu.json",
+      "size": 7365,
+      "sha": "14bbe6bf8a85a2a809e58dbdfc6dfd7324118163"
+    },
+    {
+      "path": "data/cms/testimonials.json",
+      "size": 1007,
+      "sha": "eb8cbeb35728bd31490fc4742f0f8c54311cbf29"
+    },
+    {
+      "path": "data/combos.ts",
+      "size": 6047,
+      "sha": "8874dcdf4a305956ac90aa528c37548e000a43dd"
+    },
+    {
+      "path": "data/franchise.ts",
+      "size": 11492,
+      "sha": "9605619b1984c105cdf1694d28dace0f60742d98"
+    },
+    {
+      "path": "data/gallery.ts",
+      "size": 33324,
+      "sha": "7b20ce50790196891c16b63d4513a2dc95147901"
+    },
+    {
+      "path": "data/menu.ts",
+      "size": 5855,
+      "sha": "ca8ecc33339baca44634384d7b2fae9205faa838"
+    },
+    {
+      "path": "data/orderData.ts",
+      "size": 5734,
+      "sha": "2d648a487899b7f26dd292e2454ab601af56b9e0"
+    },
+    {
+      "path": "database/local-schema.sql",
+      "size": 9693,
+      "sha": "a3dd67009d76ab489f132a45bb8c478fd2a115cb"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-AUDIT.md",
+      "size": 4681,
+      "sha": "3577dd208e8d94a0e24836be72618aa72f405fe3"
+    },
+    {
+      "path": "lib/auth/auth.ts",
+      "size": 2517,
+      "sha": "bcc6944156df4fca48315dde7e063398f1cec112"
+    },
+    {
+      "path": "lib/business.ts",
+      "size": 900,
+      "sha": "8df20ae502f027c94809036f719073bed8bb9910"
+    },
+    {
+      "path": "lib/db.ts",
+      "size": 4726,
+      "sha": "d680f0b4cecc5cda89267ce0a3e4e54f6011d3e1"
+    },
+    {
+      "path": "lib/storage.ts",
+      "size": 1206,
+      "sha": "cc8c1b2d15fd4766eb03f0c1a70aa47b345d6e76"
+    },
+    {
+      "path": "lib/useContent.ts",
+      "size": 390,
+      "sha": "e5bed69d5ca762f3b43e6d333e8b8d8844de9849"
+    },
+    {
+      "path": "lib/useMenu.ts",
+      "size": 770,
+      "sha": "3c8dc85f2ce2f3d84ec498718c593694b6ce3e1f"
+    },
+    {
+      "path": "middleware.ts",
+      "size": 1629,
+      "sha": "120339a2c5f2b7c46eae6b87a42a01857b4d0ad1"
+    },
+    {
+      "path": "next.config.ts",
+      "size": 1194,
+      "sha": "9cf67396bd84ccc79ab462648cb706ddc52e7f57"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 286421,
+      "sha": "f143774e3d5c4482552b1e2cc8ec0866dcad4378"
+    },
+    {
+      "path": "package.json",
+      "size": 1238,
+      "sha": "004de367095cde1726067aa0427c394aed3f3e84"
+    },
+    {
+      "path": "public/downloads/momos-magic.apk",
+      "size": null,
+      "sha": null
+    },
+    {
+      "path": "public/image-credits.json",
+      "size": 860,
+      "sha": "36153a050b07def0480253c92aa2487abd9f0284"
+    },
+    {
+      "path": "public/images/stock/fried.jpg",
+      "size": 121653,
+      "sha": "9288557b41a5cb3e4ef4e0102c30d0bd8d0fba4f"
+    },
+    {
+      "path": "public/images/stock/fusion.jpg",
+      "size": 219136,
+      "sha": "3e22c00279142a4204538e9fe463bfd210e30a50"
+    },
+    {
+      "path": "public/images/stock/platter.jpg",
+      "size": 70588,
+      "sha": "7b93146af55335678c150fcce0864322ebdcf0b3"
+    },
+    {
+      "path": "public/images/stock/steamed.jpg",
+      "size": 189476,
+      "sha": "393107ca58bed1a3157575da2e5405bc74365603"
+    },
+    {
+      "path": "scripts/diagnose.mjs",
+      "size": 2015,
+      "sha": "549c954191b468578c3a85c0ccd9a9320bc5de8a"
+    },
+    {
+      "path": "scripts/verify-extra.mjs",
+      "size": 4725,
+      "sha": "9e23c132b26f82d8aedfd339addcd523ded60e08"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "size": 6635,
+      "sha": "697328e4e219f245d855d851c5a8dd55f77da66a"
+    }
+  ],
+  "uploadedFiles": [
+    {
+      "path": ".vercelignore",
+      "sha": "8feeadd2cb27f2f0d9e2865e15df356c93db20e4"
+    },
+    {
+      "path": "app/(public)/careers/page.tsx",
+      "sha": "6b1c5a4533aa10f0e6465449d00afceb504b393a"
+    },
+    {
+      "path": ".gitignore",
+      "sha": "7648f6b8b6e3ec9406b6f5a5af9cdc1c509a6613"
+    },
+    {
+      "path": "app/(public)/about/page.tsx",
+      "sha": "06819e0cc5c13dff21f939d793c078da77bdb189"
+    },
+    {
+      "path": ".npmrc",
+      "sha": "521a9f7c0773588848ad5fa8a074ceca964a6b41"
+    },
+    {
+      "path": "app/(public)/combo-deals/page.tsx",
+      "sha": "b08d75f5927ac2dfc25c95c7541d5abfcb3430ed"
+    },
+    {
+      "path": "app/(public)/download-app/page.tsx",
+      "sha": "1754c9c152facde4873925463b6b2eb7fff3f99b"
+    },
+    {
+      "path": "app/(public)/gallery/page.tsx",
+      "sha": "1143b924c4722adc8215f920643a5789472fcba6"
+    },
+    {
+      "path": "app/(public)/contact/page.tsx",
+      "sha": "37d7eb6ff91e7fadfb9234972a7e7ad4da9c5cbd"
+    },
+    {
+      "path": "app/(public)/menu/page.tsx",
+      "sha": "8d2b5d6c26361419c54da733dc25d033f843b0b6"
+    },
+    {
+      "path": "app/(public)/online-ordering-policy/page.tsx",
+      "sha": "32f3a782f1992b7891583dbb007311424caf2f0e"
+    },
+    {
+      "path": "app/(public)/order/confirmation/page.tsx",
+      "sha": "bf43071e70147018e492bcee3431a37066b01a72"
+    },
+    {
+      "path": "app/(public)/privacy-policy/page.tsx",
+      "sha": "5f5b6614e80c5639609c9eb56b7f7d195418e481"
+    },
+    {
+      "path": "app/(public)/order/checkout/page.tsx",
+      "sha": "987c1d6b450bcd9078db58277154162b6a28382f"
+    },
+    {
+      "path": "app/(public)/order/login/page.tsx",
+      "sha": "2867ff8f59e758d935a4d0e88dc65e998aa56a67"
+    },
+    {
+      "path": "app/(public)/order/profile/page.tsx",
+      "sha": "45f077331babf57d375e009138257294dda90cde"
+    },
+    {
+      "path": "app/(public)/order/menu/page.tsx",
+      "sha": "c1acffa5cb6f08e916779c8fe3ef631819dfd195"
+    },
+    {
+      "path": "app/admin/dashboard/api-integrations/page.tsx",
+      "sha": "af64a37fbd54d70e60b720ff086ba139490dd51a"
+    },
+    {
+      "path": "app/admin/dashboard/careers/page.tsx",
+      "sha": "231c32476a3cf9bec885bd0c536a332083f11b17"
+    },
+    {
+      "path": "app/admin/dashboard/download-app/page.tsx",
+      "sha": "9ca8b65e82fe6cc50966a8dcf4d5484e035dc6a4"
+    },
+    {
+      "path": "app/(public)/terms-conditions/page.tsx",
+      "sha": "be7f91d408948a1d078b9bb82a8eb9853b4ccf12"
+    },
+    {
+      "path": "app/(public)/refund-cancellation/page.tsx",
+      "sha": "dff1aa351b426ef294f9a4b442a05bf89e26687a"
+    },
+    {
+      "path": "app/(public)/shipping-delivery/page.tsx",
+      "sha": "bcadaca92d049471e9c7c4e93103816845fbf53d"
+    },
+    {
+      "path": "app/admin/dashboard/orders/page.tsx",
+      "sha": "699094a9d003a79911d3b11b0f9e238fcb64ea55"
+    },
+    {
+      "path": "app/admin/dashboard/inventory/page.tsx",
+      "sha": "c47797afd456c6ec71b83b773431104e801c0991"
+    },
+    {
+      "path": "app/admin/dashboard/legal-pages/page.tsx",
+      "sha": "b7f511c440e0c00888c58cf28ec170e1e85dbb6a"
+    },
+    {
+      "path": "app/admin/dashboard/page.tsx",
+      "sha": "597450ced267015c0448b8c723ee0027450ff89c"
+    },
+    {
+      "path": "app/admin/dashboard/gallery/page.tsx",
+      "sha": "d3d15451b92e3b9f61abf2ac3c78b4d99cf23977"
+    },
+    {
+      "path": "app/admin/dashboard/menu/page.tsx",
+      "sha": "e39502080daf047eb8b1ae40629a286e11ed4b51"
+    },
+    {
+      "path": "app/api/check-admin-creds/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/auth/login/route.ts",
+      "sha": "b14dd7d6a16aae48de946a2fa02b04ee94cc4cb3"
+    },
+    {
+      "path": "app/admin/dashboard/payment-settings/page.tsx",
+      "sha": "61513edc6d963a919a31e1c223202199003ad072"
+    },
+    {
+      "path": "app/admin/dashboard/testimonials/page.tsx",
+      "sha": "8cf8005b8697acf5522b2a3748af238cbf291275"
+    },
+    {
+      "path": "app/api/cms/analytics/route.ts",
+      "sha": "889d7823ba7e8fb2ae0c9c83534a0f20c287172c"
+    },
+    {
+      "path": "app/api/cms/about/route.ts",
+      "sha": "35b553c7763897813a4b43555f455b643ce900a1"
+    },
+    {
+      "path": "app/api/cms/api-integrations/route.ts",
+      "sha": "6e08e56d469748896ab1f90e02a1bef2ebc7bd2d"
+    },
+    {
+      "path": "app/(public)/catering/page.tsx",
+      "sha": "286e3b03072d4229c4ebe94ab8245ac577d79ea7"
+    },
+    {
+      "path": "app/api/cms/careers/route.ts",
+      "sha": "ba1c9e3ab0e0522e4ec23b2be3dae31cf6ce074e"
+    },
+    {
+      "path": "app/api/cms/backup/route.ts",
+      "sha": "d00c806de88ba41d82c383995fc63b7dd52c56ad"
+    },
+    {
+      "path": "app/api/cms/categories/reorder/route.ts",
+      "sha": "d79349eec2730228d6cfa727c80b165d94c94991"
+    },
+    {
+      "path": "app/api/cms/combos/route.ts",
+      "sha": "77cdfdcac465c044f7c741beca1958ad01dcc039"
+    },
+    {
+      "path": "app/api/cms/catering/route.ts",
+      "sha": "961be97e6f463f04b9c785fee915377b8157272d"
+    },
+    {
+      "path": "app/api/cms/contact/route.ts",
+      "sha": "b3059efc574e7cc4408e3aecee2c9e7f0fc0a2d2"
+    },
+    {
+      "path": "app/api/cms/content-analytics/route.ts",
+      "sha": "f26a92204d05aef6b7387222968ef0be4aa4c9d1"
+    },
+    {
+      "path": "app/api/cms/categories/route.ts",
+      "sha": "f02dcb9d0fcb96af97ab98f6fa742bccd63544cd"
+    },
+    {
+      "path": "app/api/cms/gallery/bulk/route.ts",
+      "sha": "6b20914b844d29d2ad66b3912061d3fa16510cc3"
+    },
+    {
+      "path": "app/api/cms/hero/route.ts",
+      "sha": "a4ea7ad89c09d1e7c4deb0418e4cc9cc762138a3"
+    },
+    {
+      "path": "app/api/cms/cta/route.ts",
+      "sha": "0bb7f22e5ca689dd526995c0624961d7aacae4fd"
+    },
+    {
+      "path": "app/api/cms/franchise/route.ts",
+      "sha": "75fe08148c4da4e6997d4acfa306e53cb0cbfabd"
+    },
+    {
+      "path": "app/api/cms/legal-pages/route.ts",
+      "sha": "e79fbcfa8f60278491e84494d92e1eeacd0e3bd9"
+    },
+    {
+      "path": "app/api/cms/gallery/route.ts",
+      "sha": "8a9bd6242677dbde32b4ee199d54ba014f72fc7f"
+    },
+    {
+      "path": "app/api/cms/page-builder/route.ts",
+      "sha": "2d763cd3fdf8194971b91865acc49d6271cb962b"
+    },
+    {
+      "path": "app/api/cms/menu/route.ts",
+      "sha": "23d9d874e1a8270a1367206b22f87f7142075191"
+    },
+    {
+      "path": "app/api/cms/logo/route.ts",
+      "sha": "943efebb9d995e98a6c2c547a16f5c42ca44d98e"
+    },
+    {
+      "path": "app/api/cms/media/route.ts",
+      "sha": "c894d0b65bd83b4241861cad1cec542e90987320"
+    },
+    {
+      "path": "app/api/cms/menu-filters/route.ts",
+      "sha": "ea2a5683eddb19c98352920cca722af98150704e"
+    },
+    {
+      "path": "app/api/cms/media/upload/route.ts",
+      "sha": "7c583b13c3cb783d4d7bf9154ca36f03f996ea8e"
+    },
+    {
+      "path": "app/api/cms/testimonials/route.ts",
+      "sha": "7fddbb5c523739778bf38a53becabc9e1fef28ed"
+    },
+    {
+      "path": "app/api/cms/social/route.ts",
+      "sha": "50af5fdc612588d9a6c5a8e4ec5c96bd523fdf5b"
+    },
+    {
+      "path": "app/api/cms/seo/route.ts",
+      "sha": "cb2542cffc13cbd3e28f64c2fd1d48b5f2dd8806"
+    },
+    {
+      "path": "app/api/cms/seo/analyze/route.ts",
+      "sha": "3d7e76ca838cd3d022717995265636d9bfe0f009"
+    },
+    {
+      "path": "app/api/cms/performance/route.ts",
+      "sha": "d5dff340760e2398c3fa44f6ac6da0a796dea0b0"
+    },
+    {
+      "path": "app/api/cms/translations/route.ts",
+      "sha": "53d1931aac9439f04715bc9ef03ef7b5be559e20"
+    },
+    {
+      "path": "app/api/contact/submit/route.ts",
+      "sha": "55d4aff64719aef4c7d585513b30c5850c2d8458"
+    },
+    {
+      "path": "app/api/content/route.ts",
+      "sha": "c72a03f29ddf702ba271db1483cc4946672addef"
+    },
+    {
+      "path": "app/api/debug-env/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/cms/versions/restore/route.ts",
+      "sha": "72926f6bc1ca1adf8252dd5566b02b1c314c0bf7"
+    },
+    {
+      "path": "app/api/cms/versions/route.ts",
+      "sha": "be8ad9d5c246da686af277d8fb28cfa674d1dbec"
+    },
+    {
+      "path": "app/api/direct-pg-test/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/order/auth/route.ts",
+      "sha": "de473a109825ed6e86b723ade83074d0a4156437"
+    },
+    {
+      "path": "app/api/health-check-db/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/media/route.ts",
+      "sha": "16430ac13c2b3fd635911fed186797bdad1c8cef"
+    },
+    {
+      "path": "app/api/migrate-database/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/env-check/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/order/create/route.ts",
+      "sha": "c4f9986c01209d77445d60b4e75c92007c54556e"
+    },
+    {
+      "path": "app/api/test-auth-bypass/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/order/payment/route.ts",
+      "sha": "ff2eff3becddba8fbf2b241b4a7d7b1d7670f59e"
+    },
+    {
+      "path": "app/api/test-cms-data/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/test-cms-table/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/show-db-url/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/test-db/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/api/test-publish/route.ts",
+      "sha": "eca0b6d28ca889d67543f1ac314188198ccc862c"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha": "af83ca97d69825ef5373b4a130611223a0488e22"
+    },
+    {
+      "path": "app/globals.css",
+      "sha": "6feff53cf1535d2595748079d9b37c05dc315883"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "sha": "6414e40a33f76ba266a24f794fc0684a93dc0d83"
+    },
+    {
+      "path": "app/robots.ts",
+      "sha": "4332070dbcb5fdc1a05a3921d6a619f6f560b0dd"
+    },
+    {
+      "path": "components/LegalNotes.tsx",
+      "sha": "6d11e013f820ff0d31b0d25e733353e45ea3267a"
+    },
+    {
+      "path": "components/StructuredData.tsx",
+      "sha": "b9e7b51fced9e9c5487f6dfcf930fa548d9c7d27"
+    },
+    {
+      "path": "components/catering/GuestCalculator.tsx",
+      "sha": "05614e7cc64653fe65607cf0da83dc358fbd0da7"
+    },
+    {
+      "path": "components/catering/QuoteGenerator.tsx",
+      "sha": "f6616e53c99832baa0e0f602a9f850fe7b901649"
+    },
+    {
+      "path": "components/OptimizedImage.tsx",
+      "sha": "27aed641a20702d9c9ee120bd7b8f46e7425c68c"
+    },
+    {
+      "path": "components/catering/PackageCard.tsx",
+      "sha": "5a15c8137c75f0a96b80784d3a3a1dcf3bcdb823"
+    },
+    {
+      "path": "components/catering/BookingForm.tsx",
+      "sha": "5179233eb9f416f4bc04db6f064c33fd22d20db0"
+    },
+    {
+      "path": "components/combos/ComboCard.tsx",
+      "sha": "5fe40fb0395dbde52e83a17936fb9231fa7f5594"
+    },
+    {
+      "path": "components/cms/ImageDropZone.tsx",
+      "sha": "98e9f37bb085ae065cbc0561b6a56d8c98f68d0b"
+    },
+    {
+      "path": "components/franchise/DocumentDownload.tsx",
+      "sha": "8c7bcf7781cee65bb1513c9d3f36b134fd8d037a"
+    },
+    {
+      "path": "components/layout/Footer.tsx",
+      "sha": "b7a37b19eed61e1c56fc4c6f27f7d0a1effed5f3"
+    },
+    {
+      "path": "components/franchise/FranchiseForm.tsx",
+      "sha": "8eb787610de52fd8b65b47cbabc752742eadfaa8"
+    },
+    {
+      "path": "components/cms/VisualDesignPanel.tsx",
+      "sha": "07d15aff7e6c5a5e35bbf3ed0888bc3b85f355f2"
+    },
+    {
+      "path": "components/layout/Header.tsx",
+      "sha": "77099eacbfdaec7ef95d25282b1a37d7fec9c245"
+    },
+    {
+      "path": "components/sections/MenuHighlights.tsx",
+      "sha": "b989830ce5548d00e5e742e103a600e6e860c40e"
+    },
+    {
+      "path": "components/sections/GoogleReviews.tsx",
+      "sha": "817d02a232cc6771f95dcedd962b1bff8f5f69bd"
+    },
+    {
+      "path": "components/sections/LocationServices.tsx",
+      "sha": "578ee4682575168f5aefcaf86bf72a4112e1bd35"
+    },
+    {
+      "path": "components/sections/Hero.tsx",
+      "sha": "1333d921708cb73286715f5beb2b6b2567d2fc88"
+    },
+    {
+      "path": "data/catering.ts",
+      "sha": "6a8600a040a304e3a108ec174e819b39faecab90"
+    },
+    {
+      "path": "data/cms/careers.json",
+      "sha": "0b5421239f774c51ed7d6f068fe045292cd80340"
+    },
+    {
+      "path": "data/cms/gallery.json",
+      "sha": "b189e659af892a5f08f9bb71db29d1d30252d906"
+    },
+    {
+      "path": "data/cms/about.json",
+      "sha": "caedb58d558d466b0ffaf348eb455b17fd57a3d1"
+    },
+    {
+      "path": "data/cms/contact.json",
+      "sha": "6bca4c76d19fa0352a7a0568572a59684f1f54e0"
+    },
+    {
+      "path": "data/cms/combos.json",
+      "sha": "456ca43718a631b8b2e55c95bba562d39762341a"
+    }
+  ]
+}

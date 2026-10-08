@@ -8,7 +8,7 @@ import { sampleOrders } from '@/data/orderData';
 export default function OrderProfilePage() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
-  const [orders, setOrders] = useState<any[]>(sampleOrders);
+  const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -215,3 +215,4 @@ export default function OrderProfilePage() {
     </div>
   );
 }
+

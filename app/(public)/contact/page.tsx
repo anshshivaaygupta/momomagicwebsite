@@ -1,10 +1,11 @@
 'use client';
+import { openWhatsApp, BUSINESS } from '@/lib/business';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 
 interface FormData {
   name: string;
@@ -63,7 +64,6 @@ function ContactPageContent() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -100,75 +100,10 @@ function ContactPageContent() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    if (!executeRecaptcha) {
-      console.error('reCAPTCHA not yet available');
-      setSubmitError(true);
-      setTimeout(() => setSubmitError(false), 5000);
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitError(false);
-
-    try {
-      const recaptchaToken = await executeRecaptcha('contact_form_submit');
-
-      const response = await fetch('/api/contact/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
-          recaptchaToken,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
-
-        setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 5000);
-      } else {
-        setIsSubmitting(false);
-        setSubmitError(true);
-        console.error('Form submission error:', data.error);
-
-        setTimeout(() => {
-          setSubmitError(false);
-        }, 5000);
-      }
-    } catch (error) {
-      setIsSubmitting(false);
-      setSubmitError(true);
-      console.error('Form submission error:', error);
-
-      setTimeout(() => {
-        setSubmitError(false);
-      }, 5000);
-    }
+    if (!validateForm()) return;
+    openWhatsApp('Contact enquiry',{'Name':formData.name,'Email':formData.email,'Phone':formData.phone,'Subject':formData.subject,'Message':formData.message});
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -363,7 +298,7 @@ function ContactPageContent() {
                       <span className="animate-spin">⏳</span> Sending...
                     </span>
                   ) : (
-                    'Send Message'
+                    'Continue to WhatsApp'
                   )}
                 </Button>
               </form>
@@ -442,19 +377,19 @@ function ContactPageContent() {
               <h3 className="text-xl font-bold text-golden-glow mb-4">Follow Us</h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href={BUSINESS.maps}
                   className="w-12 h-12 flex items-center justify-center bg-deep-space border border-charcoal rounded-lg hover:border-golden-glow transition-colors text-2xl"
                 >
                   📘
                 </a>
                 <a
-                  href="#"
+                  href={BUSINESS.maps}
                   className="w-12 h-12 flex items-center justify-center bg-deep-space border border-charcoal rounded-lg hover:border-golden-glow transition-colors text-2xl"
                 >
                   📷
                 </a>
                 <a
-                  href="#"
+                  href={BUSINESS.maps}
                   className="w-12 h-12 flex items-center justify-center bg-deep-space border border-charcoal rounded-lg hover:border-golden-glow transition-colors text-2xl"
                 >
                   🐦
@@ -477,7 +412,7 @@ function ContactPageContent() {
           <Card className="p-4 overflow-hidden">
             <div className="w-full h-[400px] rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.5234567890!2d84.79919!3d24.568549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDM0JzA2LjgiTiA4NMKwNDgnMDQuMyJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src={BUSINESS.embed}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -599,17 +534,4 @@ function ContactPageContent() {
   );
 }
 
-export default function ContactPage() {
-  return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-      scriptProps={{
-        async: true,
-        defer: true,
-        appendTo: 'head',
-      }}
-    >
-      <ContactPageContent />
-    </GoogleReCaptchaProvider>
-  );
-}
+export default function ContactPage() { return <ContactPageContent />; }

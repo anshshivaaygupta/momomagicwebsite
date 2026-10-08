@@ -1,5 +1,6 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'translations.json');
@@ -36,6 +37,7 @@ async function saveTranslations(data: any) {
 }
 
 export async function GET() {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const data = await loadTranslations();
     return NextResponse.json(data);
@@ -48,6 +50,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const data = await request.json();
     await saveTranslations(data);
@@ -59,3 +62,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

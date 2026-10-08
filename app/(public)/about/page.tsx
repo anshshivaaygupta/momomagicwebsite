@@ -1,5 +1,7 @@
 'use client';
 
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/about.json';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
@@ -110,6 +112,10 @@ const faqs = [
 ];
 
 export default function AboutPage() {
+  const content=useContent<any>('about',seed);
+  const founder=content.founderStory||{...content.founder,paragraphs:content.founder?.story};
+  const activeTimeline=content.timeline||timeline;
+  const activeCommitments=content.qualityCommitments||qualityCommitments;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [lightboxImage, setLightboxImage] = useState<number | null>(null);
@@ -148,39 +154,16 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-bold text-golden-glow mb-6">
-                  Meet Dhruv Gupta - The Visionary Behind Momos Magic
+                  Meet {founder.name} — {founder.title}
                 </h2>
-                <div className="space-y-4 text-foreground/80">
-                  <p>
-                    In September 2023, Dhruv Gupta, a young entrepreneur from Sherghati, started 
-                    his journey with a simple yet powerful philosophy: <span className="text-premium-orange font-semibold">
-                    "Better to be a small owner than someone else's employee."</span>
-                  </p>
-                  <p>
-                    What began as a small experiment with Pita quickly transformed into something 
-                    magical. Dhruv listened to his customers, understood the market, and pivoted 
-                    to momos - a decision that would change everything.
-                  </p>
-                  <p>
-                    The breakthrough came with the introduction of <span className="text-golden-glow font-semibold">
-                    Kurkure Momos</span> - an innovation nobody in Bihar had attempted before. 
-                    This bold move put Sherghati on the food map and earned Momos Magic recognition 
-                    from the District Magistrate's office.
-                  </p>
-                  <p>
-                    Today, Momos Magic serves 2000+ happy customers with the same passion and 
-                    commitment to quality that started it all. The journey continues with new 
-                    innovations like Pizza Momos, always staying true to the core values of 
-                    quality, hygiene, and customer satisfaction.
-                  </p>
-                </div>
+                <div className="space-y-4 text-foreground/80">{(founder.paragraphs||[]).map((paragraph:string,index:number)=><p key={index}>{paragraph}</p>)}</div>
               </div>
 
               <div className="flex items-center justify-center">
                 <div className="bg-charcoal rounded-lg p-8 text-center border-2 border-golden-glow">
                   <div className="text-8xl mb-4">👨‍🍳</div>
-                  <h3 className="text-2xl font-bold text-premium-orange mb-2">Dhruv Gupta</h3>
-                  <p className="text-foreground/70 mb-4">Founder & Chef</p>
+                  <h3 className="text-2xl font-bold text-premium-orange mb-2">{founder.name}</h3>
+                  <p className="text-foreground/70 mb-4">{founder.title}</p>
                   <div className="space-y-2 text-sm text-foreground/60">
                     <p>📍 Sherghati, Bihar</p>
                     <p>🎯 Established: September 2023</p>
@@ -241,7 +224,7 @@ export default function AboutPage() {
 
               {/* Timeline Items */}
               <div className="space-y-8">
-                {timeline.map((item, index) => (
+                {activeTimeline.map((item:any, index:number) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -30 }}
@@ -286,7 +269,7 @@ export default function AboutPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {qualityCommitments.map((commitment, index) => (
+            {activeCommitments.map((commitment:any, index:number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -602,3 +585,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

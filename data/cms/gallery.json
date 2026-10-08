@@ -1,50 +1,32 @@
 {
-  "albums": [
-    {
-      "id": "album-1",
-      "name": "Food Photography",
-      "description": "Our delicious momos in all their glory"
-    },
-    {
-      "id": "album-2",
-      "name": "Stall & Setup",
-      "description": "Our premium branded stall"
-    },
-    {
-      "id": "album-3",
-      "name": "Customer Moments",
-      "description": "Happy customers enjoying our momos"
-    },
-    {
-      "id": "album-4",
-      "name": "Behind the Scenes",
-      "description": "How we make the magic happen"
-    }
-  ],
   "images": [
     {
-      "id": "img-1",
-      "albumId": "album-1",
-      "url": "/images/gallery/kurkure-momos-1.jpg",
-      "title": "Kurkure Momos",
-      "description": "Our signature crispy kurkure momos",
-      "uploadedAt": "2024-01-15"
+      "id": "0",
+      "url": "/images/stock/steamed.jpg",
+      "title": "Representative food photograph",
+      "description": "Stock photo by Abhishek Sanwa Limbu",
+      "source": "https://unsplash.com/photos/dumpling-dishes-LR559Dcst70"
     },
     {
-      "id": "img-2",
-      "albumId": "album-1",
-      "url": "/images/gallery/pizza-momos-1.jpg",
-      "title": "Pizza Momos",
-      "description": "Fusion pizza-style momos",
-      "uploadedAt": "2024-01-15"
+      "id": "1",
+      "url": "/images/stock/platter.jpg",
+      "title": "Representative food photograph",
+      "description": "Stock photo by Tek Bahadur",
+      "source": "https://unsplash.com/photos/a-plate-of-dumplings-with-dipping-sauce-on-a-table-bj07uo3SnhM"
     },
     {
-      "id": "img-3",
-      "albumId": "album-2",
-      "url": "/images/gallery/stall-exterior.jpg",
-      "title": "Our Stall",
-      "description": "Premium branded stall in Naya Bazar",
-      "uploadedAt": "2024-01-10"
+      "id": "2",
+      "url": "/images/stock/fusion.jpg",
+      "title": "Representative food photograph",
+      "description": "Stock photo by Anshu A",
+      "source": "https://unsplash.com/photos/plates-of-dumplings-with-sauces-and-seasonings-cCkL1MO5fxo"
+    },
+    {
+      "id": "3",
+      "url": "/images/stock/fried.jpg",
+      "title": "Representative food photograph",
+      "description": "Stock photo by Purvi Shah",
+      "source": "https://unsplash.com/photos/a-bowl-of-food-0e_WfhRHbiw"
     }
   ]
 }

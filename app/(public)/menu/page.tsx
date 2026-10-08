@@ -1,12 +1,16 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { menuItems, categories } from '@/data/menu';
+import { categories } from '@/data/menu';
+import { whatsappUrl } from '@/lib/business';
+import { useMenu } from '@/lib/useMenu';
 
 export default function MenuPage() {
+  const menuItems=useMenu();
+  useEffect(()=>{const category=new URLSearchParams(window.location.search).get('category');if(category&&['steamed','fried','kurkure','pizza','combo'].includes(category))setSelectedCategory(category);},[]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedSpiceLevel, setSelectedSpiceLevel] = useState<string>('all');
@@ -28,7 +32,7 @@ export default function MenuPage() {
       if (showNewOnly && !item.new) return false;
       return true;
     });
-  }, [selectedCategory, selectedType, selectedSpiceLevel, priceRange, searchQuery, showPopularOnly, showNewOnly]);
+  }, [menuItems, selectedCategory, selectedType, selectedSpiceLevel, priceRange, searchQuery, showPopularOnly, showNewOnly]);
 
   const handleFilterChange = (callback: () => void) => {
     setIsLoading(true);
@@ -338,7 +342,7 @@ export default function MenuPage() {
                 <Card className="h-full flex flex-col group cursor-pointer">
                   {/* Image Placeholder with Loading State */}
                   <div className="bg-charcoal rounded-lg mb-4 aspect-video flex items-center justify-center overflow-hidden relative">
-                    <div className="text-6xl group-hover:scale-110 transition-transform duration-300">🥟</div>
+                    <img src={item.image} alt={`${item.name} — representative stock photo`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"/>
                     <div className="absolute inset-0 bg-gradient-to-t from-pitch-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
@@ -383,7 +387,7 @@ export default function MenuPage() {
                   <p className="text-sm text-foreground/70 mb-4 flex-grow">{item.description}</p>
 
                   {/* Price & Order */}
-                  <div className="flex items-center justify-between pt-4 border-t border-charcoal">
+                  <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pt-4 border-t border-charcoal">
                     <div>
                       <div className="flex items-baseline gap-2">
                         <p className="text-xl font-bold text-golden-glow">₹{item.halfPrice}</p>
@@ -394,7 +398,7 @@ export default function MenuPage() {
                       </div>
                       <p className="text-xs text-foreground/50 mt-1">Half | Full Plate</p>
                     </div>
-                    <Button variant="primary" size="sm">
+                    <Button variant="primary" size="sm" onClick={()=>window.location.assign(whatsappUrl("Menu order enquiry",{Item:item.name,Portion:"10 pieces","Menu price":`₹${item.price}`}))}>
                       Order Now
                     </Button>
                   </div>
@@ -433,3 +437,4 @@ export default function MenuPage() {
     </div>
   );
 }
+

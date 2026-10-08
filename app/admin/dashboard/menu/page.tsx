@@ -233,7 +233,7 @@ export default function MenuManagementPage() {
       category: categories[0],
       description: '',
       price: { half: 0, full: 0 },
-      image: '/images/menu/placeholder.jpg',
+      image: '/images/stock/platter.jpg',
       isPopular: false,
       isNew: false,
       spiceLevel: 'Medium'
@@ -776,12 +776,12 @@ export default function MenuManagementPage() {
                     contentId={editingItem.id}
                     contentType="menu"
                     analytics={{
-                      views: Math.floor(Math.random() * 10000),
-                      engagement: Math.floor(Math.random() * 100),
-                      conversions: Math.floor(Math.random() * 500),
+                      views: 0,
+                      engagement: 0,
+                      conversions: 0,
                       performance: {
-                        loadTime: Math.random() * 3,
-                        seoScore: Math.floor(Math.random() * 100),
+                        loadTime: 0,
+                        seoScore: 0,
                       },
                     }}
                   />
@@ -1037,3 +1037,4 @@ export default function MenuManagementPage() {
     </div>
   );
 }
+

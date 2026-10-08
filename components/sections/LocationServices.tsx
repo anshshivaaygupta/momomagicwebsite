@@ -1,4 +1,5 @@
 'use client';
+import {BUSINESS} from '@/lib/business';
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -215,7 +216,7 @@ export const LocationServices: React.FC = () => {
                     onLoad={() => setMapLoaded(true)}
                   >
                     <iframe
-                      src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(LOCATION.address)}&zoom=16&maptype=roadmap`}
+                      src={BUSINESS.embed}
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -373,3 +374,4 @@ export const LocationServices: React.FC = () => {
     </section>
   );
 };
+

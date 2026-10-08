@@ -26,7 +26,7 @@ export function VisualDesignPanel({ pageName, onSave }: VisualDesignPanelProps) 
 
   const [backgroundMedia, setBackgroundMedia] = useState<BackgroundMedia>({
     type: 'image',
-    url: '/images/hero-bg.jpg',
+    url: '/images/stock/platter.jpg',
     overlayColor: '#000000',
     overlayOpacity: 0.5,
     parallax: true,
@@ -323,3 +323,4 @@ export function VisualDesignPanel({ pageName, onSave }: VisualDesignPanelProps) 
     </div>
   );
 }
+

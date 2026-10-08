@@ -1,4 +1,6 @@
 'use client';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/catering.json';
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -6,24 +8,26 @@ import { getPackageRecommendation, calculateEstimatedCost } from '@/data/caterin
 import type { CateringPackage } from '@/data/catering';
 
 interface GuestCalculatorProps {
+  onGuestCountChange?: (count:number)=>void;
   onPackageSelect?: (packageId: string) => void;
 }
 
-export const GuestCalculator: React.FC<GuestCalculatorProps> = ({ onPackageSelect }) => {
+export const GuestCalculator: React.FC<GuestCalculatorProps> = ({ onPackageSelect,onGuestCountChange }) => {
+  const {packages}=useContent<any>('catering',seed);
   const [guestCount, setGuestCount] = useState(100);
   const [recommendedPackage, setRecommendedPackage] = useState<CateringPackage | null>(null);
 
   useEffect(() => {
-    const recommendation = getPackageRecommendation(guestCount);
+    const recommendation = getPackageRecommendation(guestCount,packages);
     setRecommendedPackage(recommendation);
-  }, [guestCount]);
+  }, [guestCount,packages]);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setGuestCount(parseInt(e.target.value));
+    const count=parseInt(e.target.value);setGuestCount(count);onGuestCountChange?.(count);
   };
 
   const estimatedCost = recommendedPackage
-    ? calculateEstimatedCost(recommendedPackage.id, guestCount)
+    ? calculateEstimatedCost(recommendedPackage.id, guestCount,[],packages)
     : 0;
 
   return (
@@ -164,3 +168,4 @@ export const GuestCalculator: React.FC<GuestCalculatorProps> = ({ onPackageSelec
     </section>
   );
 };
+

@@ -1,4 +1,6 @@
 'use client';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/catering.json';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,9 +11,10 @@ import { MenuCustomizer } from '@/components/catering/MenuCustomizer';
 import { QuoteGenerator } from '@/components/catering/QuoteGenerator';
 import { BookingForm } from '@/components/catering/BookingForm';
 import { CateringGallery } from '@/components/catering/CateringGallery';
-import { cateringPackages, cateringCategories } from '@/data/catering';
+import { cateringPackages as defaultPackages, cateringCategories, calculateEstimatedCost } from '@/data/catering';
 
 export default function CateringPage() {
+  const {packages:cateringPackages}=useContent<any>('catering',seed);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedPackageId, setSelectedPackageId] = useState<string>('');
   const [guestCount, setGuestCount] = useState(100);
@@ -19,8 +22,8 @@ export default function CateringPage() {
 
   const filteredPackages =
     selectedCategory === 'all'
-      ? cateringPackages.filter((p) => p.isActive)
-      : cateringPackages.filter((p) => p.isActive && p.category === selectedCategory);
+      ? cateringPackages.filter((p:any) => p.isActive)
+      : cateringPackages.filter((p:any) => p.isActive && p.category === selectedCategory);
 
   const handlePackageSelect = (packageId: string) => {
     setSelectedPackageId(packageId);
@@ -151,7 +154,7 @@ export default function CateringPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {filteredPackages.map((pkg, index) => (
+              {filteredPackages.map((pkg:any, index:number) => (
                 <PackageCard
                   key={pkg.id}
                   package={pkg}
@@ -185,7 +188,7 @@ export default function CateringPage() {
       </section>
 
       {/* Guest Calculator */}
-      <GuestCalculator onPackageSelect={handlePackageSelect} />
+      <GuestCalculator onGuestCountChange={setGuestCount} onPackageSelect={handlePackageSelect} />
 
       {/* Menu Customizer */}
       <MenuCustomizer selectedItems={selectedMenuItems} onItemsChange={setSelectedMenuItems} />
@@ -208,10 +211,10 @@ export default function CateringPage() {
         selectedPackageId={selectedPackageId}
         estimatedCost={
           selectedPackageId
-            ? require('@/data/catering').calculateEstimatedCost(
+            ? calculateEstimatedCost(
                 selectedPackageId,
                 guestCount,
-                selectedMenuItems
+                selectedMenuItems, cateringPackages
               )
             : 0
         }
@@ -219,3 +222,4 @@ export default function CateringPage() {
     </div>
   );
 }
+

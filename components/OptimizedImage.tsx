@@ -28,6 +28,7 @@ export function OptimizedImage({
   objectFit = 'cover',
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [currentSrc,setCurrentSrc]=useState(src);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
@@ -54,7 +55,7 @@ export function OptimizedImage({
         transition={{ duration: 0.5 }}
       >
         <Image
-          src={src}
+          src={currentSrc}
           alt={alt}
           width={width}
           height={height}
@@ -64,9 +65,11 @@ export function OptimizedImage({
           loading={priority ? undefined : 'lazy'}
           quality={85}
           onLoad={() => setIsLoading(false)}
+          onError={()=>{setCurrentSrc("/images/stock/platter.jpg");setIsLoading(false);}}
           className={`${objectFit === 'cover' ? 'object-cover' : objectFit === 'contain' ? 'object-contain' : ''}`}
         />
       </motion.div>
     </div>
   );
 }
+

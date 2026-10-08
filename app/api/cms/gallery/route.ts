@@ -3,6 +3,7 @@ import { requireAuth } from '@/lib/auth/auth';
 import { query, queryOne } from '@/lib/db';
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -30,6 +31,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -94,6 +96,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -150,3 +153,4 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+

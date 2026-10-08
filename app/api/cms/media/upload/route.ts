@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/auth';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
+import { put } from '@vercel/blob';
+import { randomUUID } from 'crypto';
 
 const CMS_DATA_DIR = path.join(process.cwd(), 'data', 'cms');
 const MEDIA_DATA_FILE = path.join(CMS_DATA_DIR, 'media.json');
@@ -17,6 +19,7 @@ async function ensureDirectories() {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
     await ensureDirectories();
@@ -31,9 +34,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (file.size > 10 * 1024 * 1024) {
+    if (file.size > 4 * 1024 * 1024) {
       return NextResponse.json(
-        { error: 'File size exceeds 10MB limit' },
+        { error: 'File size exceeds 4MB limit' },
         { status: 400 }
       );
     }
@@ -48,17 +51,18 @@ export async function POST(request: NextRequest) {
 
     const timestamp = Date.now();
     const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filename = `${timestamp}-${originalName}`;
-    const filepath = path.join(PUBLIC_UPLOADS_DIR, filename);
+    const filename = `${randomUUID()}-${originalName}`;
+    const filepath = path.join(process.cwd(),'.local-data','uploads',filename);
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    await writeFile(filepath, buffer);
+    if (process.env.BLOB_READ_WRITE_TOKEN) await put('media/'+filename,buffer,{access:'private',contentType:file.type,addRandomSuffix:false});
+    else { await mkdir(path.dirname(filepath),{recursive:true}); await writeFile(filepath,buffer); }
 
     const fileRecord = {
       id: timestamp.toString(),
       name: file.name,
-      url: `/uploads/${filename}`,
+      url: `/api/media?id=${filename}`,
       type: file.type.startsWith('image/') ? 'image' : 'video',
       size: file.size,
       uploadedAt: new Date().toISOString()
@@ -94,3 +98,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

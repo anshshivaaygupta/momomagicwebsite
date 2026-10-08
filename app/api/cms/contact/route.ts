@@ -26,6 +26,7 @@ const defaultContactData = {
 };
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -56,6 +57,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
 
@@ -97,3 +99,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
