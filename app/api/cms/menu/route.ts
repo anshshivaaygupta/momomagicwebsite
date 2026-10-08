@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/auth';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const CMS_DATA_DIR = path.join(process.cwd(), 'data', 'cms');
@@ -21,6 +21,7 @@ const defaultCategories = [
 ];
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     console.log('[MENU API] GET request received');
     const user = await requireAuth();
@@ -42,6 +43,7 @@ export async function GET(request: NextRequest) {
             };
         
         return {
+          ...item,
           id: item.id,
           name: item.name,
           category: item.category,
@@ -81,6 +83,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
     await ensureDataDir();
@@ -135,6 +138,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
     await ensureDataDir();
@@ -187,3 +191,4 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+

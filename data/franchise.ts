@@ -309,7 +309,7 @@ export const franchiseTestimonials: FranchiseTestimonial[] = [
     authorName: 'Rajesh Kumar',
     authorTitle: 'Potential Franchisee, Patna',
     authorStatus: '📍 Location Approved',
-    authorImage: '/images/franchise/testimonial-1.jpg',
+    authorImage: '/images/stock/platter.jpg',
   },
   {
     id: 'testimonial-2',
@@ -318,7 +318,7 @@ export const franchiseTestimonials: FranchiseTestimonial[] = [
     authorName: 'Priya Singh',
     authorTitle: 'Business Consultant, Gaya',
     authorStatus: '📊 Financials Verified',
-    authorImage: '/images/franchise/testimonial-2.jpg',
+    authorImage: '/images/stock/platter.jpg',
   },
   {
     id: 'testimonial-3',
@@ -327,7 +327,7 @@ export const franchiseTestimonials: FranchiseTestimonial[] = [
     authorName: 'Amit Sharma',
     authorTitle: 'Restaurant Owner, Muzaffarpur',
     authorStatus: '👨‍🍳 Industry Experience',
-    authorImage: '/images/franchise/testimonial-3.jpg',
+    authorImage: '/images/stock/platter.jpg',
   },
 ];
 
@@ -444,3 +444,4 @@ export function getLocationsByStatus(
 ): FranchiseLocation[] {
   return franchiseLocations.filter((location) => location.status === status);
 }
+

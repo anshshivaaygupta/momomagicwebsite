@@ -121,27 +121,7 @@ export default function APIIntegrationsPage() {
     });
   };
 
-  const testConnection = async (serviceId: string) => {
-    setTestResults({ ...testResults, [serviceId]: 'Testing...' });
-    
-    setTimeout(() => {
-      const config = getConfig(serviceId);
-      if (config.apiKey || Object.keys(config.config).length > 0) {
-        setTestResults({ ...testResults, [serviceId]: '✅ Connection successful!' });
-      } else {
-        setTestResults({ ...testResults, [serviceId]: '❌ Please configure API keys first' });
-      }
-      
-      setTimeout(() => {
-        setTestResults(prev => {
-          const newResults = { ...prev };
-          delete newResults[serviceId];
-          return newResults;
-        });
-      }, 3000);
-    }, 1500);
-  };
-
+  const testConnection = async (serviceId:string) => {setTestResults({...testResults,[serviceId]:'Provider is not connected. Saved keys do not verify a live integration.'});};
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -308,3 +288,4 @@ export default function APIIntegrationsPage() {
     </div>
   );
 }
+

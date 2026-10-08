@@ -1,4 +1,5 @@
 'use client';
+import {whatsappUrl} from '@/lib/business';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -48,9 +49,7 @@ export const ComboCard: React.FC<ComboCardProps> = ({ combo, index }) => {
 
         {/* Image Placeholder */}
         <div className="bg-charcoal rounded-lg mb-4 aspect-video flex items-center justify-center overflow-hidden relative group">
-          <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
-            🎁
-          </div>
+          <img src={combo.image} alt={`${combo.name} — representative stock photo`} loading="lazy" className="w-full h-full object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-t from-pitch-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
@@ -108,10 +107,11 @@ export const ComboCard: React.FC<ComboCardProps> = ({ combo, index }) => {
         </div>
 
         {/* CTA Button */}
-        <Button variant="primary" className="w-full" size="md">
-          Add to Cart
+        <Button variant="primary" className="w-full" size="md" onClick={()=>window.location.assign(whatsappUrl("Combo order request",{Combo:combo.name,"Menu price":`₹${combo.comboPrice}`,Serves:combo.serves}))}>
+          Order on WhatsApp
         </Button>
       </div>
     </motion.div>
   );
 };
+

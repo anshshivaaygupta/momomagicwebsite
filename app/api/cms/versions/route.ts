@@ -1,7 +1,9 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { query, queryOne } from '@/lib/db';
 
 export async function GET(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const { searchParams } = new URL(request.url);
     const contentId = searchParams.get('contentId');
@@ -32,6 +34,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const body = await request.json();
     const { contentId, snapshot, description, author = 'System' } = body;
@@ -87,3 +90,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

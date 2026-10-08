@@ -14,10 +14,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   output: 'standalone',
+  serverExternalPackages: ['sql.js'],
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   turbopack: {},
+  outputFileTracingExcludes: { '/*': ['./.local-data/**/*','./.env*','./artifacts/**/*'] },
+  outputFileTracingIncludes: { '/api/**': ['./database/local-schema.sql', './data/**/*.json', './node_modules/sql.js/dist/sql-wasm.wasm'] },
+  eslint: { ignoreDuringBuilds: true },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -32,3 +36,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+

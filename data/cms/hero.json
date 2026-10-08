@@ -11,7 +11,7 @@
   },
   "backgroundType": "video",
   "backgroundVideo": "/videos/hero-bg.mp4",
-  "backgroundImage": "/images/hero-poster.jpg",
+  "backgroundImage": "/images/stock/platter.jpg",
   "achievements": [
     {
       "text": "⭐ 4.9/5 Rating",

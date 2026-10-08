@@ -67,13 +67,10 @@ export function ImageDropZone({
         const url = await onUpload(file);
         onImageChange(url);
       } else {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          if (e.target?.result) {
-            onImageChange(e.target.result as string);
-          }
-        };
-        reader.readAsDataURL(file);
+        const body=new FormData();body.append('file',file);
+        const response=await fetch('/api/cms/media/upload',{method:'POST',body});
+        const result=await response.json();if(!response.ok)throw new Error(result.error||'Upload failed');
+        onImageChange(result.file.url);
       }
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -239,3 +236,4 @@ export function ImageDropZone({
     </div>
   );
 }
+

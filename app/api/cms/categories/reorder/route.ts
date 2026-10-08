@@ -1,10 +1,12 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'categories.json');
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const { categories } = await request.json();
 
@@ -19,3 +21,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

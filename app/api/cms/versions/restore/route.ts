@@ -1,7 +1,9 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { query, queryOne } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const body = await request.json();
     const { contentId, versionId } = body;
@@ -52,3 +54,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

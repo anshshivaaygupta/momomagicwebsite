@@ -72,7 +72,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 50-150 Guests', '🕒 3 Hours Service', '🎯 Perfect for Small Weddings'],
     isActive: true,
     isFeatured: false,
-    image: '/images/catering/wedding-basic.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 1,
   },
   {
@@ -101,7 +101,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 80-200 Guests', '🕒 4 Hours Service', '💫 Full Service Experience'],
     isActive: true,
     isFeatured: true,
-    image: '/images/catering/wedding-premium.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 2,
   },
   {
@@ -132,7 +132,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 100-300+ Guests', '🕒 6 Hours Service', '👑 Luxury Wedding Experience'],
     isActive: true,
     isFeatured: false,
-    image: '/images/catering/wedding-royal.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 3,
   },
   {
@@ -161,7 +161,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 20-100 People', '🕒 2 Hours Service', '🏢 Perfect for Offices'],
     isActive: true,
     isFeatured: false,
-    image: '/images/catering/office-party.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 4,
   },
   {
@@ -190,7 +190,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 10-50 People', '🕒 3 Hours Service', '🎂 Perfect for Birthdays'],
     isActive: true,
     isFeatured: false,
-    image: '/images/catering/birthday-bash.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 5,
   },
   {
@@ -219,7 +219,7 @@ export const cateringPackages: CateringPackage[] = [
     metaInfo: ['👥 10-1000+ Guests', '🕒 Flexible Duration', '🎯 Fully Customizable'],
     isActive: true,
     isFeatured: false,
-    image: '/images/catering/custom-package.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 6,
   },
 ];
@@ -402,8 +402,8 @@ export const cateringCategories = [
   },
 ];
 
-export function getPackageRecommendation(guestCount: number): CateringPackage | null {
-  const suitablePackages = cateringPackages.filter(
+export function getPackageRecommendation(guestCount: number, packages: CateringPackage[]=cateringPackages): CateringPackage | null {
+  const suitablePackages = packages.filter(
     (pkg) => guestCount >= pkg.guestRange.min && guestCount <= pkg.guestRange.max && pkg.id !== 'custom-quote'
   );
 
@@ -418,9 +418,10 @@ export function getPackageRecommendation(guestCount: number): CateringPackage | 
 export function calculateEstimatedCost(
   packageId: string,
   guestCount: number,
-  selectedMenuItems: string[] = []
+  selectedMenuItems: string[] = [],
+  packages: CateringPackage[]=cateringPackages
 ): number {
-  const selectedPackage = cateringPackages.find((pkg) => pkg.id === packageId);
+  const selectedPackage = packages.find((pkg) => pkg.id === packageId);
   if (!selectedPackage) return 0;
 
   let baseCost = selectedPackage.basePrice;
@@ -436,3 +437,4 @@ export function calculateEstimatedCost(
 
   return baseCost + menuItemsCost;
 }
+

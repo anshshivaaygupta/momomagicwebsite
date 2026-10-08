@@ -1,116 +1,300 @@
 {
   "categories": [
-    "Steamed Perfection",
-    "Crispy Fried Delights",
-    "Magic Signatures",
-    "Fusion Innovations"
+    "steamed",
+    "fried",
+    "kurkure",
+    "pizza",
+    "combo"
   ],
   "items": [
     {
-      "id": "menu-1",
+      "id": "steamed-veg",
       "name": "Veg Steamed Momos",
-      "category": "Steamed Perfection",
-      "description": "Classic steamed momos filled with fresh vegetables and aromatic spices",
-      "price5pc": 40,
-      "price10pc": 80,
-      "image": "/images/menu/veg-steamed.jpg",
-      "isAvailable": true,
-      "isFeatured": true,
-      "isVegetarian": true,
-      "spiceLevel": "mild"
-    },
-    {
-      "id": "menu-2",
-      "name": "Paneer Steamed Momos",
-      "category": "Steamed Perfection",
-      "description": "Soft steamed momos with cottage cheese and special masala",
-      "price5pc": 50,
-      "price10pc": 100,
-      "image": "/images/menu/paneer-steamed.jpg",
-      "isAvailable": true,
-      "isFeatured": true,
-      "isVegetarian": true,
-      "spiceLevel": "mild"
-    },
-    {
-      "id": "menu-3",
-      "name": "Soya Steamed Momos",
-      "category": "Steamed Perfection",
-      "description": "Protein-rich soya chunks in traditional momo style",
-      "price5pc": 45,
-      "price10pc": 90,
-      "image": "/images/menu/soya-steamed.jpg",
-      "isAvailable": true,
-      "isFeatured": false,
-      "isVegetarian": true,
-      "spiceLevel": "mild"
-    },
-    {
-      "id": "menu-4",
-      "name": "Veg Fried Momos",
-      "category": "Crispy Fried Delights",
-      "description": "Golden fried momos with crispy exterior and juicy filling",
-      "price5pc": 50,
-      "price10pc": 100,
-      "image": "/images/menu/veg-fried.jpg",
-      "isAvailable": true,
-      "isFeatured": true,
-      "isVegetarian": true,
-      "spiceLevel": "medium"
-    },
-    {
-      "id": "menu-5",
-      "name": "Paneer Fried Momos",
-      "category": "Crispy Fried Delights",
-      "description": "Crispy fried momos with paneer filling",
-      "price5pc": 60,
-      "price10pc": 120,
-      "image": "/images/menu/paneer-fried.jpg",
-      "isAvailable": true,
-      "isFeatured": false,
-      "isVegetarian": true,
-      "spiceLevel": "medium"
-    },
-    {
-      "id": "menu-6",
-      "name": "Kurkure Momos",
-      "category": "Magic Signatures",
-      "description": "Our signature crispy kurkure momos - the most popular item!",
-      "price5pc": 70,
-      "price10pc": 140,
-      "image": "/images/menu/kurkure.jpg",
-      "isAvailable": true,
-      "isFeatured": true,
-      "isVegetarian": true,
-      "spiceLevel": "medium",
-      "badge": "BESTSELLER"
-    },
-    {
-      "id": "menu-7",
-      "name": "Pizza Momos",
-      "category": "Fusion Innovations",
-      "description": "Fusion pizza-style momos with cheese and Italian herbs",
-      "price5pc": 80,
-      "price10pc": 160,
-      "image": "/images/menu/pizza-momos.jpg",
-      "isAvailable": true,
-      "isFeatured": true,
-      "isVegetarian": true,
+      "category": "steamed",
+      "type": "veg",
+      "price": {
+        "half": 25,
+        "full": 50
+      },
+      "halfPrice": 25,
+      "description": "Soft and juicy steamed momos filled with fresh vegetables",
+      "image": "/images/stock/steamed.jpg",
+      "popular": true,
       "spiceLevel": "mild",
-      "badge": "NEW"
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": false
     },
     {
-      "id": "menu-8",
-      "name": "Cheese Corn Momos",
-      "category": "Fusion Innovations",
-      "description": "Cheesy corn filling with special sauce",
-      "price5pc": 70,
-      "price10pc": 140,
-      "image": "/images/menu/cheese-corn.jpg",
+      "id": "steamed-paneer",
+      "name": "Paneer Steamed Momos",
+      "category": "steamed",
+      "type": "paneer",
+      "price": {
+        "half": 35,
+        "full": 70
+      },
+      "halfPrice": 35,
+      "description": "Steamed momos with creamy paneer filling",
+      "image": "/images/stock/steamed.jpg",
+      "popular": true,
+      "spiceLevel": "mild",
       "isAvailable": true,
-      "isFeatured": false,
-      "isVegetarian": true,
-      "spiceLevel": "mild"
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": "steamed-soya",
+      "name": "Soya Steamed Momos",
+      "category": "steamed",
+      "type": "soya",
+      "price": {
+        "half": 30,
+        "full": 60
+      },
+      "halfPrice": 30,
+      "description": "Protein-rich soya steamed momos",
+      "image": "/images/stock/steamed.jpg",
+      "spiceLevel": "mild",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": "steamed-cheese",
+      "name": "Cheese Corn Steamed Momos",
+      "category": "steamed",
+      "type": "cheese-corn",
+      "price": {
+        "half": 50,
+        "full": 100
+      },
+      "halfPrice": 50,
+      "description": "Steamed momos with cheese and sweet corn",
+      "image": "/images/stock/steamed.jpg",
+      "popular": true,
+      "spiceLevel": "mild",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": "fried-veg",
+      "name": "Veg Fried Momos",
+      "category": "fried",
+      "type": "veg",
+      "price": {
+        "half": 30,
+        "full": 60
+      },
+      "halfPrice": 30,
+      "description": "Golden-fried momos with crispy exterior",
+      "image": "/images/stock/fried.jpg",
+      "popular": true,
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": "fried-paneer",
+      "name": "Paneer Fried Momos",
+      "category": "fried",
+      "type": "paneer",
+      "price": {
+        "half": 46,
+        "full": 80
+      },
+      "halfPrice": 46,
+      "description": "Crispy fried momos with paneer filling",
+      "image": "/images/stock/fried.jpg",
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": "fried-soya",
+      "name": "Soya Fried Momos",
+      "category": "fried",
+      "type": "soya",
+      "price": {
+        "half": 35,
+        "full": 70
+      },
+      "halfPrice": 35,
+      "description": "Crispy fried soya momos",
+      "image": "/images/stock/fried.jpg",
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": "fried-cheese",
+      "name": "Cheese Corn Fried Momos",
+      "category": "fried",
+      "type": "cheese-corn",
+      "price": {
+        "half": 55,
+        "full": 119
+      },
+      "halfPrice": 55,
+      "description": "Fried momos with cheese and corn",
+      "image": "/images/stock/fried.jpg",
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": false
+    },
+    {
+      "id": "kurkure-veg",
+      "name": "Kurkure Veg Momos",
+      "category": "kurkure",
+      "type": "veg",
+      "price": {
+        "half": 50,
+        "full": 100
+      },
+      "halfPrice": 50,
+      "description": "Our signature crispy, crunchy Kurkure momos - First in Bihar!",
+      "image": "/images/stock/fried.jpg",
+      "popular": true,
+      "spicy": true,
+      "spiceLevel": "hot",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": "kurkure-paneer",
+      "name": "Kurkure Paneer Momos",
+      "category": "kurkure",
+      "type": "paneer",
+      "price": {
+        "half": 60,
+        "full": 120
+      },
+      "halfPrice": 60,
+      "description": "Kurkure coating with creamy paneer filling",
+      "image": "/images/stock/fried.jpg",
+      "popular": true,
+      "spicy": true,
+      "spiceLevel": "hot",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": false
+    },
+    {
+      "id": "kurkure-cheese",
+      "name": "Kurkure Cheese Corn Momos",
+      "category": "kurkure",
+      "type": "cheese-corn",
+      "price": {
+        "half": 60,
+        "full": 120
+      },
+      "halfPrice": 60,
+      "description": "Ultimate Kurkure momos with cheese and corn",
+      "image": "/images/stock/fried.jpg",
+      "new": true,
+      "spicy": true,
+      "spiceLevel": "extra-magic",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": "pizza-veg",
+      "name": "Veg Pizza Momos",
+      "category": "pizza",
+      "type": "veg",
+      "price": {
+        "half": 80,
+        "full": 160
+      },
+      "halfPrice": 80,
+      "description": "Innovative fusion of pizza and momos",
+      "image": "/images/stock/fusion.jpg",
+      "new": true,
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": "pizza-paneer",
+      "name": "Paneer Pizza Momos",
+      "category": "pizza",
+      "type": "paneer",
+      "price": {
+        "half": 100,
+        "full": 200
+      },
+      "halfPrice": 100,
+      "description": "Pizza momos with paneer topping",
+      "image": "/images/stock/fusion.jpg",
+      "new": true,
+      "popular": true,
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": true
+    },
+    {
+      "id": "pizza-soya",
+      "name": "Soya Pizza Momos",
+      "category": "pizza",
+      "type": "soya",
+      "price": {
+        "half": 90,
+        "full": 180
+      },
+      "halfPrice": 90,
+      "description": "Pizza momos with soya filling",
+      "image": "/images/stock/fusion.jpg",
+      "new": true,
+      "spiceLevel": "hot",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": "pizza-cheese",
+      "name": "Cheese Corn Pizza Momos",
+      "category": "pizza",
+      "type": "cheese-corn",
+      "price": {
+        "half": 120,
+        "full": 240
+      },
+      "halfPrice": 120,
+      "description": "Ultimate pizza momos with extra cheese",
+      "image": "/images/stock/fusion.jpg",
+      "new": true,
+      "spiceLevel": "hot",
+      "isAvailable": true,
+      "isPopular": false,
+      "isNew": true
+    },
+    {
+      "id": "combo-platter",
+      "name": "Momos Magic Combo Platter",
+      "category": "combo",
+      "type": "mixed",
+      "price": {
+        "half": 150,
+        "full": 250
+      },
+      "halfPrice": 150,
+      "description": "A delightful mix of our best momos - Steamed, Fried, and Kurkure varieties (15 pieces)",
+      "image": "/images/stock/platter.jpg",
+      "popular": true,
+      "new": true,
+      "spiceLevel": "medium",
+      "isAvailable": true,
+      "isPopular": true,
+      "isNew": true
     }
   ]
 }

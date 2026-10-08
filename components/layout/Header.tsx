@@ -1,10 +1,12 @@
 'use client';
 
+import {useContent} from '@/lib/useContent';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export const Header: React.FC = () => {
+  const content=useContent<any>('logo',{logos:{headerLogo:'/logo.png'}});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
 
@@ -37,7 +39,7 @@ export const Header: React.FC = () => {
           {/* Logo - Left Side with Premium Spacing */}
           <Link href="/" className="flex items-center pl-2 lg:pl-4">
             <Image 
-              src="/logo.png" 
+              src={content.logos?.headerLogo||"/logo.png"} 
               alt="Momos Magic Logo" 
               width={200} 
               height={60}
@@ -47,7 +49,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Navigation - Center (Desktop) with Smooth Transitions */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          <nav className="hidden xl:flex items-center space-x-6">
             {navLinks.map((link) => (
               <div key={link.href} className="relative">
                 {link.hasDropdown ? (
@@ -56,7 +58,7 @@ export const Header: React.FC = () => {
                     onMouseEnter={() => setIsMenuDropdownOpen(true)}
                     onMouseLeave={() => setIsMenuDropdownOpen(false)}
                   >
-                    <button className="relative text-premium-orange hover:text-golden-glow transition-all duration-300 font-medium text-base group whitespace-nowrap flex items-center gap-1">
+                    <button type="button" aria-expanded={isMenuDropdownOpen} onClick={() => setIsMenuDropdownOpen(!isMenuDropdownOpen)} onKeyDown={(event) => { if (event.key === 'Escape') setIsMenuDropdownOpen(false); }} className="relative text-premium-orange hover:text-golden-glow transition-all duration-300 font-medium text-base group whitespace-nowrap flex items-center gap-1">
                       {link.label}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -94,17 +96,19 @@ export const Header: React.FC = () => {
 
           {/* Order Now Button - Right Side with Elegant Spacing */}
           <Link 
-            href="/menu" 
-            className="hidden lg:block bg-premium-orange text-pitch-black px-8 py-3 rounded-lg text-base font-bold hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,194,65,0.4)] transition-all duration-300 mr-2 lg:mr-4"
+            href="/order/menu"
+            className="hidden xl:block bg-premium-orange text-pitch-black px-8 py-3 rounded-lg text-base font-bold hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,194,65,0.4)] transition-all duration-300 mr-2 lg:mr-4"
           >
             Order Now
           </Link>
 
           {/* Mobile Menu Button - Optimized */}
           <button
-            className="lg:hidden text-premium-orange p-2 hover:bg-deep-space rounded-lg transition-colors duration-200"
+            className="xl:hidden text-premium-orange p-2 hover:bg-deep-space rounded-lg transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg
               className="w-7 h-7"
@@ -133,7 +137,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Menu - Enhanced with Smooth Animations */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-6 border-t border-charcoal bg-deep-space/50 backdrop-blur-sm animate-fade-in">
+          <nav id="mobile-navigation" className="xl:hidden max-h-[calc(100dvh-6rem)] overflow-y-auto py-6 border-t border-charcoal bg-deep-space/50 backdrop-blur-sm animate-fade-in">
             <div className="space-y-1">
               {navLinks.map((link, index) => (
                 <div key={link.href}>
@@ -198,3 +202,4 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+

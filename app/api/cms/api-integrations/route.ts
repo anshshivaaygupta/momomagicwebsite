@@ -1,5 +1,6 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'api-integrations.json');
@@ -31,6 +32,7 @@ async function saveAPIConfigs(data: any) {
 }
 
 export async function GET() {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const data = await loadAPIConfigs();
     return NextResponse.json(data);
@@ -43,6 +45,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const data = await request.json();
     await saveAPIConfigs(data);
@@ -54,3 +57,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

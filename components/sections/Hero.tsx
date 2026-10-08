@@ -3,10 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/hero.json';
 import { Button } from '@/components/ui/Button';
 
 export const Hero: React.FC = () => {
   const router = useRouter();
+  const content=useContent<any>('hero',seed);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -38,7 +41,7 @@ export const Hero: React.FC = () => {
                 key={i}
                 className="absolute text-2xl"
                 style={{
-                  left: `${Math.random() * 100}%`,
+                  left: `${(i * 37 % 100)}%`,
                   filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))',
                 }}
                 initial={{
@@ -49,15 +52,15 @@ export const Hero: React.FC = () => {
                 }}
                 animate={{
                   y: [100, -20],
-                  x: [0, Math.random() * 100 - 50],
+                  x: [0, (i * 37 % 100) - 50],
                   opacity: [0, 1, 0],
                   scale: [0, 1, 0],
                   rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: 3 + (i % 3),
                   repeat: Infinity,
-                  delay: Math.random() * 5,
+                  delay: (i % 5),
                   ease: 'easeOut',
                 }}
               >
@@ -68,23 +71,7 @@ export const Hero: React.FC = () => {
         </div>
         
         {/* Video for Desktop, Image for Mobile */}
-        {!isMobile ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            poster="/images/hero-poster.jpg"
-          >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-poster.jpg)' }}
-          />
-        )}
+        <img src="/images/stock/platter.jpg" alt="Momos with dipping sauce — representative stock photograph" className="w-full h-full object-cover" fetchPriority="high" />
       </div>
 
       {/* Floating Momos Animation */}
@@ -149,10 +136,7 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          From Humble Stall to{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-premium-orange via-golden-glow to-premium-orange animate-gradient-x drop-shadow-[0_0_30px_rgba(255,194,65,0.5)]">
-            Culinary Legend
-          </span>
+          {content.headline}
         </motion.h1>
 
         <motion.p
@@ -161,7 +145,7 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Experience the Magic That Transformed Sherghati's Street Food Scene
+          {content.subheadline}
         </motion.p>
 
         {/* CTAs - Reduced Size for Elegance */}
@@ -181,7 +165,7 @@ export const Hero: React.FC = () => {
               className="relative overflow-hidden group"
               onClick={() => router.push('/order/menu')}
             >
-              <span className="relative z-10">Order Now</span>
+              <span className="relative z-10">{content.primaryCTA || content.primaryButton?.text || 'Order Now'}</span>
               <motion.div
                 className="absolute inset-0 border-2 border-golden-glow opacity-0 group-hover:opacity-100 rounded-lg"
                 initial={{ scale: 0.8 }}
@@ -201,7 +185,7 @@ export const Hero: React.FC = () => {
               className="relative overflow-hidden group"
               onClick={() => scrollToSection('brand-story')}
             >
-              <span className="relative z-10">Our Story</span>
+              <span className="relative z-10">{content.secondaryCTA || content.secondaryButton?.text || 'Our Story'}</span>
               <motion.div
                 className="absolute inset-0 bg-golden-glow/10 opacity-0 group-hover:opacity-100 rounded-lg"
                 transition={{ duration: 0.3 }}
@@ -233,7 +217,7 @@ export const Hero: React.FC = () => {
             },
             {
               icon: '⭐',
-              text: '4.9/5 (2000+ Happy Customers)',
+              text: 'Takeaway in Sherghati',
               borderColor: 'border-warm-orange/30',
               delay: 0.9,
             },
@@ -288,3 +272,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

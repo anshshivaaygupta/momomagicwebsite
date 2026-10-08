@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import { useMenu } from '@/lib/useMenu';
 
 const categories = [
   {
@@ -68,9 +69,11 @@ export const MenuHighlights: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
   const [imageLoaded, setImageLoaded] = useState<{ [key: string]: boolean }>({});
 
+  const liveItems=useMenu();
+  const displayedCategories=categories.map(c=>({...c,items:liveItems.filter(i=>i.category===c.id).map(i=>({name:i.name,price:`₹${i.halfPrice} (5pc) | ₹${i.price} (10pc)`}))}));
   const filteredCategories = selectedFilter === 'all' 
-    ? categories 
-    : categories.filter(cat => cat.id === selectedFilter);
+    ? displayedCategories 
+    : displayedCategories.filter(cat => cat.id === selectedFilter);
 
   return (
     <section id="menu" className="py-20 bg-pitch-black">
@@ -156,17 +159,7 @@ export const MenuHighlights: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-deep-space to-charcoal flex items-center justify-center">
-                      <motion.div
-                        className="text-center"
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                      >
-                        <div className="text-6xl mb-2">{category.icon}</div>
-                        <p className="text-golden-glow text-sm font-semibold">Image Coming Soon</p>
-                      </motion.div>
-                    </div>
+                    <img src={`/images/stock/${category.id==='steamed'?'steamed':category.id==='pizza'?'fusion':'fried'}.jpg`} alt={`${category.name} — representative stock photograph`} className="w-full h-full object-cover" loading="lazy"/>
                   </motion.div>
 
                   {/* Category Info */}
@@ -262,3 +255,4 @@ export const MenuHighlights: React.FC = () => {
     </section>
   );
 };
+

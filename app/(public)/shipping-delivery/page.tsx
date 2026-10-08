@@ -1,4 +1,5 @@
 'use client';
+import {LegalNotes} from '@/components/LegalNotes';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -7,6 +8,7 @@ import Link from 'next/link';
 export default function ShippingDeliveryPage() {
   return (
     <div className="min-h-screen bg-pitch-black text-white">
+      <LegalNotes slug="shipping-delivery"/>
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -305,3 +307,4 @@ export default function ShippingDeliveryPage() {
     </div>
   );
 }
+

@@ -90,3 +90,16 @@ input[type="range"].slider::-moz-range-thumb:hover {
   background: #ffd700;
   transform: scale(1.1);
 }
+
+
+:root { --font-inter: Arial, sans-serif; --font-playfair: Georgia, serif; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+input, select, textarea { max-width: 100%; }
+button, a, input, select, textarea { touch-action: manipulation; }
+:focus-visible { outline: 2px solid #ffc241; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+main { overflow-x: clip; }
+.grid > * { min-width: 0; }
+@media (max-width: 767px) { main p, main h1, main h2, main h3 { overflow-wrap: anywhere; } }

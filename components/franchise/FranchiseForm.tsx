@@ -1,4 +1,5 @@
 'use client';
+import { openWhatsApp, BUSINESS } from '@/lib/business';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -48,6 +49,8 @@ export function FranchiseForm() {
   };
 
   const handleNext = () => {
+    const form=document.querySelector('#franchise-form form') as HTMLFormElement|null;
+    if(form&&!form.reportValidity())return;
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     }
@@ -59,35 +62,10 @@ export function FranchiseForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setSubmitMessage(
-      '✅ Application submitted successfully! We will contact you within 24 hours.'
-    );
-    setIsSubmitting(false);
-
-    setTimeout(() => {
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        currentCity: '',
-        preferredLocation: '',
-        investmentCapacity: '',
-        experience: '',
-        timeline: '',
-        motivation: '',
-        questions: '',
-        agreeTerms: false,
-      });
-      setCurrentStep(1);
-      setSubmitMessage('');
-    }, 3000);
+    if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''))) { alert('Enter a valid 10-digit Indian mobile number.'); return; }
+    openWhatsApp('Franchise enquiry',{'Name':formData.fullName,'Email':formData.email,'Phone':formData.phone,'City':formData.currentCity,'Preferred location':formData.preferredLocation,'Investment capacity':formData.investmentCapacity,'Experience':formData.experience,'Timeline':formData.timeline,'Motivation':formData.motivation,'Questions':formData.questions});
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
@@ -362,7 +340,7 @@ export function FranchiseForm() {
                     disabled={isSubmitting || !formData.agreeTerms}
                     className="px-8 py-3 rounded-lg font-semibold bg-premium-orange text-pitch-black hover:bg-golden-glow transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                    {isSubmitting ? 'Submitting...' : 'Continue to WhatsApp'}
                   </button>
                 )}
               </div>
@@ -384,3 +362,4 @@ export function FranchiseForm() {
     </section>
   );
 }
+

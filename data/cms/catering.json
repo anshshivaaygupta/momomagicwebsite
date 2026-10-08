@@ -1,31 +1,208 @@
 {
   "packages": [
     {
-      "id": "catering-1",
-      "name": "Birthday Party Package",
-      "description": "Perfect for birthday celebrations",
-      "servings": "50-100 people",
-      "items": [
-        "100 Assorted Momos",
-        "Dips & Sauces",
-        "Disposable Plates & Napkins"
+      "id": "wedding-basic",
+      "name": "Basic Wedding Package",
+      "category": "wedding",
+      "badge": "Budget Friendly",
+      "basePrice": 5000,
+      "priceNote": "for 100 guests",
+      "perGuestPrice": 50,
+      "description": "Perfect for intimate wedding celebrations with essential catering services",
+      "includes": [
+        "3 Types of Momos (Your Choice)",
+        "2 Special Dips & Chutneys",
+        "Basic Serving Setup",
+        "3 Hours Service",
+        "Free Delivery"
       ],
-      "price": 5000,
-      "image": "/images/catering/birthday.jpg"
+      "guestRange": {
+        "min": 50,
+        "max": 150
+      },
+      "serviceDuration": "3 Hours",
+      "metaInfo": [
+        "👥 50-150 Guests",
+        "🕒 3 Hours Service",
+        "🎯 Perfect for Small Weddings"
+      ],
+      "isActive": true,
+      "isFeatured": false,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 1
     },
     {
-      "id": "catering-2",
-      "name": "Corporate Event Package",
-      "description": "Ideal for office parties and corporate events",
-      "servings": "100-200 people",
-      "items": [
-        "200 Assorted Momos",
-        "Premium Dips",
-        "Serving Staff",
-        "Setup & Cleanup"
+      "id": "wedding-premium",
+      "name": "Premium Wedding Package",
+      "category": "wedding",
+      "badge": "Most Popular",
+      "basePrice": 8500,
+      "priceNote": "for 100 guests",
+      "perGuestPrice": 85,
+      "description": "Complete wedding catering experience with professional service and elegant setup",
+      "includes": [
+        "5 Types of Momos (All Signature)",
+        "4 Premium Dips & Sauces",
+        "Professional Serving Staff (2 People)",
+        "Elegant Serving Setup",
+        "4 Hours Service",
+        "Complimentary Decorations",
+        "Free Delivery & Setup"
       ],
-      "price": 10000,
-      "image": "/images/catering/corporate.jpg"
+      "guestRange": {
+        "min": 80,
+        "max": 200
+      },
+      "serviceDuration": "4 Hours",
+      "metaInfo": [
+        "👥 80-200 Guests",
+        "🕒 4 Hours Service",
+        "💫 Full Service Experience"
+      ],
+      "isActive": true,
+      "isFeatured": true,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 2
+    },
+    {
+      "id": "wedding-royal",
+      "name": "Royal Wedding Package",
+      "category": "wedding",
+      "badge": "Luxury Experience",
+      "basePrice": 15000,
+      "priceNote": "for 100 guests",
+      "perGuestPrice": 150,
+      "description": "Ultimate luxury wedding catering with live counter and dedicated event coordinator",
+      "includes": [
+        "All 7 Momos Varieties",
+        "6 Premium Dips & International Sauces",
+        "Dedicated Serving Team (4 People)",
+        "Luxury Serving Setup",
+        "6 Hours Service",
+        "Premium Decorations",
+        "Personal Event Coordinator",
+        "Live Momos Counter",
+        "Free Delivery & Premium Setup"
+      ],
+      "guestRange": {
+        "min": 100,
+        "max": 300
+      },
+      "serviceDuration": "6 Hours",
+      "metaInfo": [
+        "👥 100-300+ Guests",
+        "🕒 6 Hours Service",
+        "👑 Luxury Wedding Experience"
+      ],
+      "isActive": true,
+      "isFeatured": false,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 3
+    },
+    {
+      "id": "office-corporate",
+      "name": "Office Party Package",
+      "category": "office",
+      "badge": "Corporate Special",
+      "basePrice": 2500,
+      "priceNote": "for 50 guests",
+      "perGuestPrice": 50,
+      "description": "Perfect for office celebrations, team meetings, and corporate events",
+      "includes": [
+        "3 Types of Momos (Mix)",
+        "2 Dips & Sauces",
+        "Quick 30-min Setup",
+        "Disposable Plates & Cutlery",
+        "2 Hours Service",
+        "Special Corporate Discount",
+        "Hygiene Certified Service"
+      ],
+      "guestRange": {
+        "min": 20,
+        "max": 100
+      },
+      "serviceDuration": "2 Hours",
+      "metaInfo": [
+        "👥 20-100 People",
+        "🕒 2 Hours Service",
+        "🏢 Perfect for Offices"
+      ],
+      "isActive": true,
+      "isFeatured": false,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 4
+    },
+    {
+      "id": "birthday-bash",
+      "name": "Birthday Bash Package",
+      "category": "birthday",
+      "badge": "Family Favorite",
+      "basePrice": 1500,
+      "priceNote": "for 25 guests",
+      "perGuestPrice": 60,
+      "description": "Make birthdays special with fun momos presentation and themed service",
+      "includes": [
+        "2 Types of Momos (Your Choice)",
+        "2 Fun Dips & Sauces",
+        "Themed Presentation",
+        "Birthday Special Momos",
+        "Free Cake Coordination",
+        "Fun Serving Style",
+        "3 Hours Service"
+      ],
+      "guestRange": {
+        "min": 10,
+        "max": 50
+      },
+      "serviceDuration": "3 Hours",
+      "metaInfo": [
+        "👥 10-50 People",
+        "🕒 3 Hours Service",
+        "🎂 Perfect for Birthdays"
+      ],
+      "isActive": true,
+      "isFeatured": false,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 5
+    },
+    {
+      "id": "custom-quote",
+      "name": "Custom Catering Package",
+      "category": "custom",
+      "badge": "Fully Customizable",
+      "basePrice": 0,
+      "priceNote": "custom quote",
+      "perGuestPrice": 0,
+      "description": "Build your perfect catering package tailored to your specific needs and budget",
+      "includes": [
+        "Choose Your Momos Varieties",
+        "Select Your Preferred Dips",
+        "Customize Service Duration",
+        "Flexible Guest Count",
+        "Add-ons Available",
+        "Personalized Setup",
+        "Custom Pricing"
+      ],
+      "guestRange": {
+        "min": 10,
+        "max": 1000
+      },
+      "serviceDuration": "Flexible",
+      "metaInfo": [
+        "👥 10-1000+ Guests",
+        "🕒 Flexible Duration",
+        "🎯 Fully Customizable"
+      ],
+      "isActive": true,
+      "isFeatured": false,
+      "image": "/images/stock/platter.jpg",
+      "displayOrder": 6
     }
-  ]
+  ],
+  "bookings": [],
+  "testimonials": [],
+  "settings": {
+    "contactPhone": "+91 9955955191",
+    "contactEmail": "momosmagic.info@gmail.com"
+  }
 }

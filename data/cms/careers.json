@@ -1,0 +1,52 @@
+{
+  "jobs": [
+    {
+      "icon": "🍳",
+      "title": "Kitchen Staff",
+      "subtitle": "Momos Specialists & Food Preparers",
+      "requirements": [
+        "Food preparation expertise",
+        "Hygiene consciousness",
+        "Team player attitude"
+      ],
+      "id": "role-0",
+      "isActive": true
+    },
+    {
+      "icon": "🚗",
+      "title": "Delivery Partners",
+      "subtitle": "Bike/Cycle Delivery Staff",
+      "requirements": [
+        "Knowledge of local areas",
+        "Punctual and reliable",
+        "Good communication skills"
+      ],
+      "id": "role-1",
+      "isActive": true
+    },
+    {
+      "icon": "📞",
+      "title": "Customer Support",
+      "subtitle": "Phone & WhatsApp Support",
+      "requirements": [
+        "Excellent communication",
+        "Problem-solving skills",
+        "Customer-first attitude"
+      ],
+      "id": "role-2",
+      "isActive": true
+    },
+    {
+      "icon": "💼",
+      "title": "Management Trainees",
+      "subtitle": "Future Leaders & Managers",
+      "requirements": [
+        "Leadership potential",
+        "Business acumen",
+        "Growth mindset"
+      ],
+      "id": "role-3",
+      "isActive": true
+    }
+  ]
+}

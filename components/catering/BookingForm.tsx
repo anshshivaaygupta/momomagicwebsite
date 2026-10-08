@@ -1,9 +1,12 @@
 'use client';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/catering.json';
+import { openWhatsApp, BUSINESS } from '@/lib/business';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { cateringPackages } from '@/data/catering';
+import { cateringPackages,calculateEstimatedCost } from '@/data/catering';
 
 interface BookingFormProps {
   selectedPackageId?: string;
@@ -11,6 +14,7 @@ interface BookingFormProps {
 }
 
 export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, estimatedCost }) => {
+  const {packages:cateringPackages}=useContent<any>('catering',seed);
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -23,6 +27,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
     additionalRequirements: '',
   });
 
+  useEffect(()=>{if(selectedPackageId)setFormData(prev=>({...prev,packageId:selectedPackageId}));},[selectedPackageId]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -33,30 +39,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const bookingEstimate=formData.guestCount&&formData.packageId?calculateEstimatedCost(formData.packageId,Number(formData.guestCount),[],cateringPackages):estimatedCost;
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitMessage('✅ Booking request submitted successfully! We\'ll contact you within 2 hours.');
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        eventType: '',
-        guestCount: '',
-        eventDate: '',
-        eventLocation: '',
-        packageId: '',
-        additionalRequirements: '',
-      });
-    } catch (error) {
-      setSubmitMessage('❌ Failed to submit booking. Please try again or call us directly.');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitMessage(''), 5000);
-    }
+    if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''))) { alert('Enter a valid 10-digit Indian mobile number.'); return; }
+    openWhatsApp('Catering booking request',{'Name':formData.fullName,'Phone':formData.phone,'Email':formData.email,'Event':formData.eventType,'Guests':formData.guestCount,'Date':formData.eventDate,'Venue':formData.eventLocation,'Package':cateringPackages.find((p:any)=>p.id===formData.packageId)?.name||'Custom','Estimated cost':bookingEstimate||'Please quote','Requirements':formData.additionalRequirements});
   };
 
   return (
@@ -74,7 +61,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
               Book Your Catering Service
             </h3>
             <p className="text-lg text-foreground/70">
-              Fill in the details and we'll get back to you within 2 hours
+              Fill in your details to request a quote on WhatsApp.
             </p>
           </div>
 
@@ -199,7 +186,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
             <div className="mb-8">
               <h4 className="text-xl font-bold text-golden-glow mb-4">Package Selection</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {cateringPackages.map((pkg) => (
+                {cateringPackages.map((pkg:any) => (
                   <label
                     key={pkg.id}
                     className={`flex items-center justify-between p-4 bg-pitch-black border-2 rounded-lg cursor-pointer transition-all duration-300 ${
@@ -289,11 +276,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
               className="w-full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : 'Request Catering Quote'}
+              {isSubmitting ? 'Submitting...' : 'Continue to WhatsApp'}
             </Button>
 
             <p className="text-center text-sm text-foreground/60 mt-4">
-              💡 We'll contact you within 2 hours to confirm details and provide final quote
+              💡 WhatsApp opens with your details. Tap Send; the business will confirm availability and price.
             </p>
           </form>
         </motion.div>
@@ -301,3 +288,4 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
     </section>
   );
 };
+

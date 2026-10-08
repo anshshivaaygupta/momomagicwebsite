@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/auth';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const CMS_DATA_DIR = path.join(process.cwd(), 'data', 'cms');
@@ -14,6 +14,7 @@ async function ensureDataDir() {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
     await ensureDataDir();
@@ -64,6 +65,7 @@ export async function DELETE(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     await requireAuth();
     await ensureDataDir();
@@ -124,3 +126,4 @@ export async function PATCH(request: NextRequest) {
     );
   }
 }
+

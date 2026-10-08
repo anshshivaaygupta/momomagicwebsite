@@ -38,7 +38,7 @@ const timelineEvents = [
 
 export const BrandStory: React.FC = () => {
   return (
-    <section id="brand-story" className="py-20 bg-deep-space">
+    <section id="brand-story" className="py-20 bg-deep-space overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -123,13 +123,7 @@ export const BrandStory: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative aspect-video bg-gradient-to-br from-deep-space to-charcoal flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🥟</div>
-                  <p className="text-golden-glow font-semibold">Dhruv Gupta - Founder</p>
-                  <p className="text-foreground/60 text-sm">Image Coming Soon</p>
-                </div>
-              </div>
+              <figure><img src="/images/stock/steamed.jpg" alt="Representative stock photograph of momos" className="w-full aspect-video object-cover" loading="lazy"/><figcaption className="p-3 text-center text-sm text-foreground/70">A taste of our inspiration · Representative stock photo</figcaption></figure>
             </motion.div>
           </motion.div>
 
@@ -173,13 +167,7 @@ export const BrandStory: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative aspect-video bg-gradient-to-br from-deep-space to-charcoal flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🏪</div>
-                  <p className="text-golden-glow font-semibold">Momos Magic Stall</p>
-                  <p className="text-foreground/60 text-sm">Image Coming Soon</p>
-                </div>
-              </div>
+              <figure><img src="/images/stock/platter.jpg" alt="Representative stock photograph of momos" className="w-full aspect-video object-cover" loading="lazy"/><figcaption className="p-3 text-center text-sm text-foreground/70">Made for sharing · Representative stock photo</figcaption></figure>
             </motion.div>
           </motion.div>
         </div>
@@ -317,3 +305,4 @@ export const BrandStory: React.FC = () => {
     </section>
   );
 };
+

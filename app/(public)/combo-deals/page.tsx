@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ComboHero } from '@/components/combos/ComboHero';
 import { ComboCard } from '@/components/combos/ComboCard';
 import { Button } from '@/components/ui/Button';
-import { combos, comboCategories } from '@/data/combos';
+import {useContent} from "@/lib/useContent";
+import { combos as defaultCombos, comboCategories } from '@/data/combos';
 
 export default function ComboDealsPage() {
+  const {combos}=useContent('combos',{combos:defaultCombos});
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const filteredCombos = selectedCategory === 'all'
@@ -143,3 +145,4 @@ export default function ComboDealsPage() {
     </div>
   );
 }
+

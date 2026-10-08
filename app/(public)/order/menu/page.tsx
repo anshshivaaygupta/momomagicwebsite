@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { useMenu } from '@/lib/useMenu';
 import { sampleMenuItems, type MenuItem, type CartItem } from '@/data/orderData';
 
 export default function OrderMenuPage() {
@@ -11,7 +12,8 @@ export default function OrderMenuPage() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [menuItems, setMenuItems] = useState<MenuItem[]>(sampleMenuItems);
+  const liveMenu=useMenu();
+  const menuItems:MenuItem[]=liveMenu.filter(i=>i.category!=='combo').map(i=>({id:i.id,name:i.name,category:i.category as MenuItem['category'],price5pc:i.halfPrice,price10pc:i.price,description:i.description,isVeg:true,isAvailable:true,stockLevel:100,imageUrl:i.image,spiceLevels:['mild','medium','hot'],customizations:[]}));
 
   useEffect(() => {
     checkAuth();
@@ -33,10 +35,10 @@ export default function OrderMenuPage() {
       if (data.success) {
         setUser(data.user);
       } else {
-        router.push('/order/login');
+        setUser(null);
       }
     } catch (error) {
-      router.push('/order/login');
+      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -144,7 +146,7 @@ export default function OrderMenuPage() {
               >
                 {/* Image Placeholder */}
                 <div className="aspect-video bg-gradient-to-br from-charcoal to-pitch-black flex items-center justify-center">
-                  <div className="text-6xl">🥟</div>
+                  <img src={item.imageUrl} alt={`${item.name} — representative food photo`} loading="lazy" className="w-full h-full object-cover"/>
                 </div>
 
                 {/* Item Info */}
@@ -222,3 +224,4 @@ export default function OrderMenuPage() {
     </div>
   );
 }
+

@@ -39,9 +39,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ package: pkg, index, o
 
         {/* Image Placeholder */}
         <div className="bg-charcoal rounded-lg mb-4 aspect-video flex items-center justify-center overflow-hidden relative group">
-          <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
-            {pkg.category === 'wedding' ? '💒' : pkg.category === 'office' ? '🏢' : pkg.category === 'birthday' ? '🎂' : '🎯'}
-          </div>
+          <img src={pkg.image} alt="Representative catering food photograph" className="w-full h-full object-cover" loading="lazy"/>
           <div className="absolute inset-0 bg-gradient-to-t from-pitch-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
@@ -111,3 +109,4 @@ export const PackageCard: React.FC<PackageCardProps> = ({ package: pkg, index, o
     </motion.div>
   );
 };
+

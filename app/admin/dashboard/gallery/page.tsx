@@ -664,12 +664,12 @@ export default function GalleryManagementPage() {
                     contentId={editingImage.id}
                     contentType="gallery"
                     analytics={{
-                      views: Math.floor(Math.random() * 50000),
-                      engagement: Math.floor(Math.random() * 100),
-                      conversions: Math.floor(Math.random() * 1000),
+                      views: 0,
+                      engagement: 0,
+                      conversions: 0,
                       performance: {
-                        loadTime: Math.random() * 2,
-                        seoScore: Math.floor(Math.random() * 100),
+                        loadTime: 0,
+                        seoScore: 0,
                       },
                     }}
                   />
@@ -892,3 +892,4 @@ export default function GalleryManagementPage() {
     </div>
   );
 }
+

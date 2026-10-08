@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.momomegics.com';
+  const baseUrl = 'https://momo-magic-website.vercel.app';
 
   return [
     {
@@ -30,3 +30,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
+

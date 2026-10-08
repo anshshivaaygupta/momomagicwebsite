@@ -148,7 +148,9 @@ export const Footer: React.FC = () => {
             Admin Login
           </Link>
         </div>
+        <p className="text-center text-xs text-gray-400 mt-5">Food photos are representative stock images. <a href="/image-credits.json" className="underline">Photo credits</a></p>
       </div>
     </footer>
   );
 };
+

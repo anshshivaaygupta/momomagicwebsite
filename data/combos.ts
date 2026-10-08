@@ -40,7 +40,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: true,
     badge: 'Family Favorite',
-    image: '/images/combos/family-feast.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 1,
   },
   {
@@ -63,7 +63,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: true,
     badge: 'Best Value',
-    image: '/images/combos/family-delight.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 2,
   },
 
@@ -87,7 +87,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: true,
     badge: 'Party Special',
-    image: '/images/combos/party-starter.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 3,
   },
   {
@@ -111,7 +111,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: true,
     badge: 'Mega Savings',
-    image: '/images/combos/mega-party.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 4,
   },
 
@@ -133,7 +133,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: false,
     badge: 'Student Special',
-    image: '/images/combos/student-combo.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 5,
   },
   {
@@ -154,7 +154,7 @@ export const combos: ComboDeal[] = [
     isActive: true,
     isFeatured: false,
     badge: 'Quick Bite',
-    image: '/images/combos/budget-combo.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 6,
   },
 
@@ -181,7 +181,7 @@ export const combos: ComboDeal[] = [
       endDate: '2025-10-27T23:59:59',
       showCountdown: true,
     },
-    image: '/images/combos/weekend-special.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 7,
   },
   {
@@ -208,7 +208,7 @@ export const combos: ComboDeal[] = [
       endDate: '2025-10-31T23:59:59',
       showCountdown: true,
     },
-    image: '/images/combos/monsoon-magic.jpg',
+    image: '/images/stock/platter.jpg',
     displayOrder: 8,
   },
 ];
@@ -250,3 +250,4 @@ export const comboCategories = [
     color: 'golden-glow',
   },
 ];
+

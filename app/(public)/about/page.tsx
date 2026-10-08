@@ -1,18 +1,16 @@
 'use client';
 
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/about.json';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 
 const galleryImages = [
-  { id: 1, title: 'Our Premium Stall', category: 'stall' },
-  { id: 2, title: 'Kurkure Momos', category: 'food' },
-  { id: 3, title: 'Pizza Momos', category: 'food' },
-  { id: 4, title: 'Steamed Momos', category: 'food' },
-  { id: 5, title: 'Kitchen Setup', category: 'stall' },
-  { id: 6, title: 'Award Ceremony', category: 'awards' },
-  { id: 7, title: 'Happy Customers', category: 'customers' },
-  { id: 8, title: 'Team at Work', category: 'stall' },
+  { id: 1, title: 'Steamed momo inspiration', category: 'steamed', src: '/images/stock/steamed.jpg' },
+  { id: 2, title: 'Crispy momo inspiration', category: 'crispy', src: '/images/stock/fried.jpg' },
+  { id: 3, title: 'Sharing platter inspiration', category: 'platters', src: '/images/stock/platter.jpg' },
+  { id: 4, title: 'Momos and sauces', category: 'platters', src: '/images/stock/fusion.jpg' },
 ];
 
 const timeline = [
@@ -110,6 +108,10 @@ const faqs = [
 ];
 
 export default function AboutPage() {
+  const content=useContent<any>('about',seed);
+  const founder=content.founderStory||{...content.founder,paragraphs:content.founder?.story};
+  const activeTimeline=content.timeline||timeline;
+  const activeCommitments=content.qualityCommitments||qualityCommitments;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [lightboxImage, setLightboxImage] = useState<number | null>(null);
@@ -148,39 +150,16 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-bold text-golden-glow mb-6">
-                  Meet Dhruv Gupta - The Visionary Behind Momos Magic
+                  Meet {founder.name} — {founder.title}
                 </h2>
-                <div className="space-y-4 text-foreground/80">
-                  <p>
-                    In September 2023, Dhruv Gupta, a young entrepreneur from Sherghati, started 
-                    his journey with a simple yet powerful philosophy: <span className="text-premium-orange font-semibold">
-                    "Better to be a small owner than someone else's employee."</span>
-                  </p>
-                  <p>
-                    What began as a small experiment with Pita quickly transformed into something 
-                    magical. Dhruv listened to his customers, understood the market, and pivoted 
-                    to momos - a decision that would change everything.
-                  </p>
-                  <p>
-                    The breakthrough came with the introduction of <span className="text-golden-glow font-semibold">
-                    Kurkure Momos</span> - an innovation nobody in Bihar had attempted before. 
-                    This bold move put Sherghati on the food map and earned Momos Magic recognition 
-                    from the District Magistrate's office.
-                  </p>
-                  <p>
-                    Today, Momos Magic serves 2000+ happy customers with the same passion and 
-                    commitment to quality that started it all. The journey continues with new 
-                    innovations like Pizza Momos, always staying true to the core values of 
-                    quality, hygiene, and customer satisfaction.
-                  </p>
-                </div>
+                <div className="space-y-4 text-foreground/80">{(founder.paragraphs||[]).map((paragraph:string,index:number)=><p key={index}>{paragraph}</p>)}</div>
               </div>
 
               <div className="flex items-center justify-center">
                 <div className="bg-charcoal rounded-lg p-8 text-center border-2 border-golden-glow">
                   <div className="text-8xl mb-4">👨‍🍳</div>
-                  <h3 className="text-2xl font-bold text-premium-orange mb-2">Dhruv Gupta</h3>
-                  <p className="text-foreground/70 mb-4">Founder & Chef</p>
+                  <h3 className="text-2xl font-bold text-premium-orange mb-2">{founder.name}</h3>
+                  <p className="text-foreground/70 mb-4">{founder.title}</p>
                   <div className="space-y-2 text-sm text-foreground/60">
                     <p>📍 Sherghati, Bihar</p>
                     <p>🎯 Established: September 2023</p>
@@ -241,7 +220,7 @@ export default function AboutPage() {
 
               {/* Timeline Items */}
               <div className="space-y-8">
-                {timeline.map((item, index) => (
+                {activeTimeline.map((item:any, index:number) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -30 }}
@@ -286,7 +265,7 @@ export default function AboutPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {qualityCommitments.map((commitment, index) => (
+            {activeCommitments.map((commitment:any, index:number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -391,9 +370,10 @@ export default function AboutPage() {
             Gallery
           </h2>
 
+          <p className="text-center text-foreground/70 mb-6">Representative stock food photography. View our Gallery for photo credits and the outlet map.</p>
           {/* Gallery Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['all', 'food', 'stall', 'awards', 'customers'].map((cat) => (
+            {['all', 'steamed', 'crispy', 'platters'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -417,15 +397,10 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
               >
-                <div 
-                  onClick={() => setLightboxImage(image.id)}
-                  className="bg-charcoal rounded-lg aspect-square flex items-center justify-center overflow-hidden border border-golden-glow/30 hover:border-golden-glow hover:scale-105 transition-all duration-300 cursor-pointer group"
-                >
-                  <div className="text-center">
-                    <p className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">📸</p>
-                    <p className="text-xs text-foreground/70 px-2">{image.title}</p>
-                  </div>
-                </div>
+                <button type="button" onClick={() => setLightboxImage(image.id)} aria-label={`Enlarge ${image.title}`} className="relative w-full bg-charcoal rounded-lg aspect-square overflow-hidden border border-golden-glow/30 hover:border-golden-glow">
+                  <img src={image.src} alt={image.title} loading="lazy" className="w-full h-full object-cover" />
+                  <span className="absolute inset-x-0 bottom-0 p-2 bg-black/75 text-xs">{image.title}</span>
+                </button>
               </motion.div>
             ))}
           </div>
@@ -455,10 +430,10 @@ export default function AboutPage() {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 {[
-                  { role: 'Head Chef', icon: '👨‍🍳', name: 'Coming Soon' },
-                  { role: 'Kitchen Staff', icon: '👩‍🍳', name: 'Coming Soon' },
-                  { role: 'Service Team', icon: '🙋‍♂️', name: 'Coming Soon' },
-                  { role: 'Quality Control', icon: '🔍', name: 'Coming Soon' },
+                  { role: 'Head Chef', icon: '👨‍🍳', name: 'Momos Magic' },
+                  { role: 'Kitchen Staff', icon: '👩‍🍳', name: 'Momos Magic' },
+                  { role: 'Service Team', icon: '🙋‍♂️', name: 'Momos Magic' },
+                  { role: 'Quality Control', icon: '🔍', name: 'Momos Magic' },
                 ].map((member, index) => (
                   <motion.div
                     key={index}
@@ -556,17 +531,7 @@ export default function AboutPage() {
 
               {/* Image Container */}
               <div className="bg-charcoal rounded-lg border-2 border-golden-glow overflow-hidden">
-                <div className="aspect-video flex items-center justify-center p-12">
-                  <div className="text-center">
-                    <p className="text-9xl mb-6">📸</p>
-                    <h3 className="text-3xl font-bold text-golden-glow mb-4">
-                      {galleryImages.find(img => img.id === lightboxImage)?.title}
-                    </h3>
-                    <p className="text-foreground/70">
-                      Full-size image preview
-                    </p>
-                  </div>
-                </div>
+                <img src={galleryImages.find(img => img.id === lightboxImage)?.src} alt={galleryImages.find(img => img.id === lightboxImage)?.title || 'Momo photograph'} className="w-full max-h-[70vh] object-contain" />
               </div>
 
               {/* Navigation Buttons */}
@@ -602,3 +567,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

@@ -1,3 +1,4 @@
+import { menuItems } from './menu';
 
 export interface User {
   id: string;
@@ -158,120 +159,9 @@ export const mockUser: User = {
   orderHistory: [],
 };
 
-export const sampleMenuItems: MenuItem[] = [
-  {
-    id: 'veg-steamed',
-    name: 'Veg Momos',
-    category: 'steamed',
-    price5pc: 25,
-    price10pc: 50,
-    description: 'Fresh vegetables wrapped in soft dough, steamed to perfection',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 100,
-    imageUrl: '/images/menu/veg-steamed.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Less oil', 'No onion', 'No garlic'],
-  },
-  {
-    id: 'paneer-steamed',
-    name: 'Paneer Momos',
-    category: 'steamed',
-    price5pc: 35,
-    price10pc: 70,
-    description: 'Cottage cheese filling with aromatic spices',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 80,
-    imageUrl: '/images/menu/paneer-steamed.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Less oil', 'No onion', 'No garlic'],
-  },
-  {
-    id: 'veg-fried',
-    name: 'Veg Fried Momos',
-    category: 'fried',
-    price5pc: 30,
-    price10pc: 60,
-    description: 'Crispy fried momos with vegetable filling',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 90,
-    imageUrl: '/images/menu/veg-fried.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Extra crispy', 'Less oil'],
-  },
-  {
-    id: 'paneer-fried',
-    name: 'Paneer Fried Momos',
-    category: 'fried',
-    price5pc: 40,
-    price10pc: 80,
-    description: 'Golden fried momos with paneer filling',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 70,
-    imageUrl: '/images/menu/paneer-fried.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Extra crispy', 'Less oil'],
-  },
-  {
-    id: 'kurkure-veg',
-    name: 'Kurkure Momos',
-    category: 'kurkure',
-    price5pc: 50,
-    price10pc: 100,
-    description: 'Sherghati exclusive! Extra crispy kurkure coating',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 60,
-    imageUrl: '/images/menu/kurkure-veg.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Extra crispy'],
-  },
-  {
-    id: 'kurkure-paneer',
-    name: 'Paneer Kurkure Momos',
-    category: 'kurkure',
-    price5pc: 60,
-    price10pc: 120,
-    description: 'Premium paneer with signature kurkure coating',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 50,
-    imageUrl: '/images/menu/kurkure-paneer.png',
-    spiceLevels: ['mild', 'medium', 'hot'],
-    customizations: ['Extra sauce', 'Extra crispy'],
-  },
-  {
-    id: 'pizza-veg',
-    name: 'Veg Pizza Momos',
-    category: 'pizza',
-    price5pc: 80,
-    price10pc: 160,
-    description: 'Fusion innovation! Pizza flavors in momo form',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 40,
-    imageUrl: '/images/menu/pizza-veg.png',
-    spiceLevels: ['mild', 'medium'],
-    customizations: ['Extra cheese', 'Extra sauce'],
-  },
-  {
-    id: 'pizza-paneer',
-    name: 'Paneer Pizza Momos',
-    category: 'pizza',
-    price5pc: 100,
-    price10pc: 200,
-    description: 'Premium paneer with pizza spices and cheese',
-    isVeg: true,
-    isAvailable: true,
-    stockLevel: 30,
-    imageUrl: '/images/menu/pizza-paneer.png',
-    spiceLevels: ['mild', 'medium'],
-    customizations: ['Extra cheese', 'Extra sauce'],
-  },
-];
+export const sampleMenuItems: MenuItem[] = menuItems.filter(item=>item.category!=='combo').map(item=>({
+ id:item.id,name:item.name,category:item.category as MenuItem['category'],price5pc:item.halfPrice,price10pc:item.price,description:item.description,isVeg:true,isAvailable:true,stockLevel:100,imageUrl:item.image,spiceLevels:['mild','medium','hot'],customizations:[],
+}));
 
 export const sampleOrders: Order[] = [
   {
@@ -306,3 +196,4 @@ export const sampleOrders: Order[] = [
     canCancel: false,
   },
 ];
+

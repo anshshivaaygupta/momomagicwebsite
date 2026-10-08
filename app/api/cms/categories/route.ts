@@ -1,5 +1,6 @@
+import {requireAuth} from '@/lib/auth/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import fs from '@/lib/storage';
 import path from 'path';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'categories.json');
@@ -76,6 +77,7 @@ async function saveCategories(data: any) {
 }
 
 export async function GET() {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const data = await loadCategories();
     return NextResponse.json(data);
@@ -88,6 +90,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const category = await request.json();
     const data = await loadCategories();
@@ -113,6 +116,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  try { await requireAuth(); } catch { return NextResponse.json({error:'Unauthorized'},{status:401}); }
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
@@ -136,3 +140,4 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+

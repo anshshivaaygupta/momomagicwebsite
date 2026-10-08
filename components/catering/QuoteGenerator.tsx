@@ -1,4 +1,6 @@
 'use client';
+import {useContent} from '@/lib/useContent';
+import seed from '@/data/cms/catering.json';
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -17,6 +19,7 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
   selectedMenuItems,
   onBookNow,
 }) => {
+  const {packages:cateringPackages}=useContent<any>('catering',seed);
   const [estimatedCost, setEstimatedCost] = useState(0);
   const [breakdown, setBreakdown] = useState({
     packageCost: 0,
@@ -25,7 +28,7 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
   });
 
   useEffect(() => {
-    const selectedPackage = cateringPackages.find((pkg) => pkg.id === selectedPackageId);
+    const selectedPackage = cateringPackages.find((pkg:any) => pkg.id === selectedPackageId);
     if (!selectedPackage) {
       setEstimatedCost(0);
       return;
@@ -35,7 +38,7 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
       ? guestCount * selectedPackage.perGuestPrice
       : selectedPackage.basePrice;
 
-    const total = calculateEstimatedCost(selectedPackageId, guestCount, selectedMenuItems);
+    const total = calculateEstimatedCost(selectedPackageId, guestCount, selectedMenuItems,cateringPackages);
     const menuItemsCost = total - packageCost;
 
     setBreakdown({
@@ -44,9 +47,9 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
       total,
     });
     setEstimatedCost(total);
-  }, [selectedPackageId, guestCount, selectedMenuItems]);
+  }, [selectedPackageId, guestCount, selectedMenuItems,cateringPackages]);
 
-  const selectedPackage = cateringPackages.find((pkg) => pkg.id === selectedPackageId);
+  const selectedPackage = cateringPackages.find((pkg:any) => pkg.id === selectedPackageId);
 
   if (!selectedPackage || estimatedCost === 0) {
     return null;
@@ -141,7 +144,7 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
             <div className="mb-6">
               <h4 className="text-lg font-bold text-golden-glow mb-3">What's Included:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {selectedPackage.includes.map((item, index) => (
+                {selectedPackage.includes.map((item:any, index:number) => (
                   <div key={index} className="flex items-start gap-2 text-sm text-foreground/80">
                     <span className="text-vegetarian-green mt-0.5">✓</span>
                     <span>{item}</span>
@@ -180,3 +183,4 @@ export const QuoteGenerator: React.FC<QuoteGeneratorProps> = ({
     </section>
   );
 };
+
