@@ -48,3 +48,15 @@ The automated checks cover public pages at 1440 px and 390 px, image delivery, a
 - A stale local Next.js build referenced outdated JavaScript chunks; moved the old build aside and rebuilt from source before the final browser run.
 
 Final local validation: production build and `git diff --check` passed; 64 primary browser/API checks, 39 additional CMS/order checks, and 3 navigation/photo regression checks passed. Browser checks cover desktop 1440 px, mobile 390 px and targeted tablet 1024 px navigation. Test WhatsApp navigation is intercepted so no message is sent.
+
+## Street-food redesign — 9 October 2026
+
+Supersedes the earlier representative-photo storefront. Removed unavailable pizza items from visitor menus, category tabs, seeds and public API responses; stored items remain archived in the authenticated CMS. Existing carts filter unavailable legacy items. Prices align to the business menu poster: Paneer Fried half ₹40; Cheese Corn Fried full ₹110; Kurkure Soya added at ₹50/₹100.
+
+Rebuilt Home, Menu, About, Gallery, Contact, Catering, Combos, Careers, Franchise intro and Cart. Homepage uses short page teasers instead of full duplicate sections. Removed unverified reviews, return-on-investment calculators and unused marketing sections from the visitor flow. Header has a compact mobile navigation; menu has search/category filters, explicit portion buttons and a live cart notice. Gallery uses a native keyboard-accessible dialog. Forms continue to WhatsApp; no order is represented as paid or confirmed by the website. Cart total now matches checkout without an unverified automatic tax charge.
+
+Downloaded 27 images exposed in the correct Google Maps profile and visually inspected the contact sheet. Selected eight original listing assets: stall, street view of cart, two food/preparation photos, menu card, and three item posters. The Street View entry was not downloaded as a business photo. Unselected photos remain working downloads; selected optimized WebP files are versioned. Source manifest is in `docs/google-maps-photo-sources.json`. Reused relevant licensed food photos with credits retained in `public/image-credits.json`, without visitor-facing stock labels. No unverified offer poster was used.
+
+Visual direction: original CSS perspective/tilt implementation inspired by the lightweight tilt-card and rotated-card patterns on 21st.dev (https://mcp.21st.dev/@tom_ui/components/tilt-card/evade and https://mcp.21st.dev/@scrollxui/components/hero-with-cards). No copied component dependencies. Motion respects reduced-motion and avoids pointer tilt on touch devices.
+
+Validation for this redesign: TypeScript and production build pass. `scripts/verify-storefront.mjs` checks 19 routes, rendered internal links and image references, public filtering and protected API boundaries (25 checks). Earlier browser test counts above refer to the preceding design, not this redesign. Production visual/form validation is recorded after deployment.

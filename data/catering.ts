@@ -23,7 +23,7 @@ export interface CateringPackage {
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'steamed' | 'fried' | 'kurkure' | 'pizza' | 'addons';
+  category: 'steamed' | 'fried' | 'kurkure' | 'addons';
   price: number;
   quantity: string;
   isAvailable: boolean;
@@ -314,24 +314,6 @@ export const menuItems: MenuItem[] = [
     quantity: '50 pieces',
     isAvailable: true,
     description: 'Cheesy goodness in crispy kurkure coating',
-  },
-  {
-    id: 'pizza-veg',
-    name: 'Veg Pizza Momos',
-    category: 'pizza',
-    price: 800,
-    quantity: '50 pieces',
-    isAvailable: true,
-    description: 'Fusion pizza flavors in momo form',
-  },
-  {
-    id: 'pizza-paneer',
-    name: 'Paneer Pizza Momos',
-    category: 'pizza',
-    price: 1000,
-    quantity: '50 pieces',
-    isAvailable: true,
-    description: 'Paneer pizza momos with special toppings',
   },
   {
     id: 'addon-sauce',

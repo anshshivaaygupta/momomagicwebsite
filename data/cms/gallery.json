@@ -1,32 +1,68 @@
 {
   "images": [
     {
-      "id": "0",
-      "url": "/images/stock/steamed.jpg",
-      "title": "Representative food photograph",
-      "description": "Stock photo by Abhishek Sanwa Limbu",
-      "source": "https://unsplash.com/photos/dumpling-dishes-LR559Dcst70"
+      "id": "stall",
+      "url": "/images/outlet/stall.webp",
+      "title": "Our Naya Bazar stop",
+      "alt": "Our Naya Bazar stop",
+      "category": "outlet",
+      "state": "published"
     },
     {
-      "id": "1",
-      "url": "/images/stock/platter.jpg",
-      "title": "Representative food photograph",
-      "description": "Stock photo by Tek Bahadur",
-      "source": "https://unsplash.com/photos/a-plate-of-dumplings-with-dipping-sauce-on-a-table-bj07uo3SnhM"
+      "id": "kurkure",
+      "url": "/images/outlet/kurkure.webp",
+      "title": "A little extra crunch",
+      "alt": "A little extra crunch",
+      "category": "outlet",
+      "state": "published"
     },
     {
-      "id": "2",
-      "url": "/images/stock/fusion.jpg",
-      "title": "Representative food photograph",
-      "description": "Stock photo by Anshu A",
-      "source": "https://unsplash.com/photos/plates-of-dumplings-with-sauces-and-seasonings-cCkL1MO5fxo"
+      "id": "frying",
+      "url": "/images/outlet/frying.webp",
+      "title": "Golden bites in the making",
+      "alt": "Golden bites in the making",
+      "category": "outlet",
+      "state": "published"
     },
     {
-      "id": "3",
-      "url": "/images/stock/fried.jpg",
-      "title": "Representative food photograph",
-      "description": "Stock photo by Purvi Shah",
-      "source": "https://unsplash.com/photos/a-bowl-of-food-0e_WfhRHbiw"
+      "id": "street",
+      "url": "/images/outlet/street.webp",
+      "title": "Sherghati evenings",
+      "alt": "Sherghati evenings",
+      "category": "outlet",
+      "state": "published"
+    },
+    {
+      "id": "menu-card",
+      "url": "/images/outlet/menu-card.webp",
+      "title": "The Momo Magic menu",
+      "alt": "The Momo Magic menu",
+      "category": "outlet",
+      "state": "published"
+    },
+    {
+      "id": "kurkure-poster",
+      "url": "/images/outlet/kurkure-poster.webp",
+      "title": "Kurkure Paneer",
+      "alt": "Kurkure Paneer",
+      "category": "outlet",
+      "state": "published"
+    },
+    {
+      "id": "paneer-poster",
+      "url": "/images/outlet/paneer-poster.webp",
+      "title": "Paneer Steamed",
+      "alt": "Paneer Steamed",
+      "category": "outlet",
+      "state": "published"
+    },
+    {
+      "id": "veg-poster",
+      "url": "/images/outlet/veg-poster.webp",
+      "title": "The steamed classic",
+      "alt": "The steamed classic",
+      "category": "outlet",
+      "state": "published"
     }
   ]
 }

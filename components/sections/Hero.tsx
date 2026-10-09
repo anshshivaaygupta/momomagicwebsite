@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
         </div>
         
         {/* Video for Desktop, Image for Mobile */}
-        <img src="/images/stock/platter.jpg" alt="Momos with dipping sauce — representative stock photograph" className="w-full h-full object-cover" fetchPriority="high" />
+        <img src="/images/stock/platter.jpg" alt="Momos with dipping saucegraph" className="w-full h-full object-cover" fetchPriority="high" />
       </div>
 
       {/* Floating Momos Animation */}

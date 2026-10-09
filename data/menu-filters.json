@@ -21,11 +21,6 @@
       "enabled": true
     },
     {
-      "id": "pizza",
-      "name": "Fusion Innovations",
-      "enabled": true
-    },
-    {
       "id": "combo",
       "name": "Combo Platters",
       "enabled": true
@@ -35,25 +30,25 @@
     {
       "id": "mild",
       "name": "Mild",
-      "emoji": "😊",
+      "emoji": "\ud83d\ude0a",
       "enabled": true
     },
     {
       "id": "medium",
       "name": "Medium",
-      "emoji": "🌶️",
+      "emoji": "\ud83c\udf36\ufe0f",
       "enabled": true
     },
     {
       "id": "hot",
       "name": "Hot",
-      "emoji": "🔥",
+      "emoji": "\ud83d\udd25",
       "enabled": true
     },
     {
       "id": "extra-magic",
       "name": "Extra Magic",
-      "emoji": "✨",
+      "emoji": "\u2728",
       "enabled": true
     }
   ],
@@ -61,25 +56,25 @@
     {
       "id": "veg",
       "name": "Veg",
-      "emoji": "🌱",
+      "emoji": "\ud83c\udf31",
       "enabled": true
     },
     {
       "id": "paneer",
       "name": "Paneer",
-      "emoji": "🧀",
+      "emoji": "\ud83e\uddc0",
       "enabled": true
     },
     {
       "id": "soya",
       "name": "Soya",
-      "emoji": "💪",
+      "emoji": "\ud83d\udcaa",
       "enabled": true
     },
     {
       "id": "cheese-corn",
       "name": "Cheese Corn",
-      "emoji": "🌽",
+      "emoji": "\ud83c\udf3d",
       "enabled": true
     }
   ]

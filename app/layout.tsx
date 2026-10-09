@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     "Bihar momos",
     "best momos in Sherghati",
     "kurkure momos",
-    "pizza momos",
     "vegetarian momos",
     "FSSAI certified momos",
     "award-winning momos",

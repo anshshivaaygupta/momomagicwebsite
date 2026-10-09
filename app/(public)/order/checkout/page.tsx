@@ -1,11 +1,12 @@
 'use client';
+import {readCart} from '@/lib/catalog';
 import { useEffect,useState } from 'react';
 import Link from 'next/link';
 import { type CartItem } from '@/data/orderData';
 import { whatsappUrl } from '@/lib/business';
 export default function Checkout(){
  const [cart,setCart]=useState<CartItem[]>([]),[name,setName]=useState(''),[phone,setPhone]=useState(''),[ready,setReady]=useState(false),[notes,setNotes]=useState('');
- useEffect(()=>{try{setCart(JSON.parse(sessionStorage.getItem('cart')||'[]'));}catch{}setReady(true);fetch('/api/order/auth').then(r=>r.json()).then(d=>{if(d.success){setName(d.user.name);setPhone(String(d.user.phone).replace(/\D/g,'').slice(-10));}}).catch(()=>{});},[]);
+ useEffect(()=>{try{setCart(readCart());}catch{}setReady(true);fetch('/api/order/auth').then(r=>r.json()).then(d=>{if(d.success){setName(d.user.name);setPhone(String(d.user.phone).replace(/\D/g,'').slice(-10));}}).catch(()=>{});},[]);
  const total=cart.reduce((sum,i)=>sum+i.subtotal,0);
  function submit(e:React.FormEvent){e.preventDefault();const valid=cart.length>0&&name.trim().length>=2&&/^[6-9]\d{9}$/.test(phone);if(!valid)return;
   const text=cart.map(i=>`${i.menuItem.name} — ${i.quantity} pieces, ${i.spiceLevel} — ₹${i.subtotal}${i.specialInstructions?' ('+i.specialInstructions+')':''}`).join('\n');

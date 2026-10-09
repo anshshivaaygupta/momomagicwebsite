@@ -49,7 +49,7 @@ export const ComboCard: React.FC<ComboCardProps> = ({ combo, index }) => {
 
         {/* Image Placeholder */}
         <div className="bg-charcoal rounded-lg mb-4 aspect-video flex items-center justify-center overflow-hidden relative group">
-          <img src={combo.image} alt={`${combo.name} — representative stock photo`} loading="lazy" className="w-full h-full object-cover"/>
+          <img src={combo.image} alt={`${combo.name}`} loading="lazy" className="w-full h-full object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-t from-pitch-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 

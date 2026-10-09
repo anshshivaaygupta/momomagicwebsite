@@ -3,7 +3,6 @@
     "steamed",
     "fried",
     "kurkure",
-    "pizza",
     "combo"
   ],
   "items": [
@@ -102,10 +101,10 @@
       "category": "fried",
       "type": "paneer",
       "price": {
-        "half": 46,
+        "half": 40,
         "full": 80
       },
-      "halfPrice": 46,
+      "halfPrice": 40,
       "description": "Crispy fried momos with paneer filling",
       "image": "/images/stock/fried.jpg",
       "spiceLevel": "medium",
@@ -137,7 +136,7 @@
       "type": "cheese-corn",
       "price": {
         "half": 55,
-        "full": 119
+        "full": 110
       },
       "halfPrice": 55,
       "description": "Fried momos with cheese and corn",
@@ -157,8 +156,8 @@
         "full": 100
       },
       "halfPrice": 50,
-      "description": "Our signature crispy, crunchy Kurkure momos - First in Bihar!",
-      "image": "/images/stock/fried.jpg",
+      "description": "Our signature crispy, crunchy Kurkure momos",
+      "image": "/images/outlet/kurkure.webp",
       "popular": true,
       "spicy": true,
       "spiceLevel": "hot",
@@ -177,7 +176,7 @@
       },
       "halfPrice": 60,
       "description": "Kurkure coating with creamy paneer filling",
-      "image": "/images/stock/fried.jpg",
+      "image": "/images/outlet/kurkure.webp",
       "popular": true,
       "spicy": true,
       "spiceLevel": "hot",
@@ -196,83 +195,10 @@
       },
       "halfPrice": 60,
       "description": "Ultimate Kurkure momos with cheese and corn",
-      "image": "/images/stock/fried.jpg",
+      "image": "/images/outlet/kurkure.webp",
       "new": true,
       "spicy": true,
       "spiceLevel": "extra-magic",
-      "isAvailable": true,
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": "pizza-veg",
-      "name": "Veg Pizza Momos",
-      "category": "pizza",
-      "type": "veg",
-      "price": {
-        "half": 80,
-        "full": 160
-      },
-      "halfPrice": 80,
-      "description": "Innovative fusion of pizza and momos",
-      "image": "/images/stock/fusion.jpg",
-      "new": true,
-      "spiceLevel": "medium",
-      "isAvailable": true,
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": "pizza-paneer",
-      "name": "Paneer Pizza Momos",
-      "category": "pizza",
-      "type": "paneer",
-      "price": {
-        "half": 100,
-        "full": 200
-      },
-      "halfPrice": 100,
-      "description": "Pizza momos with paneer topping",
-      "image": "/images/stock/fusion.jpg",
-      "new": true,
-      "popular": true,
-      "spiceLevel": "medium",
-      "isAvailable": true,
-      "isPopular": true,
-      "isNew": true
-    },
-    {
-      "id": "pizza-soya",
-      "name": "Soya Pizza Momos",
-      "category": "pizza",
-      "type": "soya",
-      "price": {
-        "half": 90,
-        "full": 180
-      },
-      "halfPrice": 90,
-      "description": "Pizza momos with soya filling",
-      "image": "/images/stock/fusion.jpg",
-      "new": true,
-      "spiceLevel": "hot",
-      "isAvailable": true,
-      "isPopular": false,
-      "isNew": true
-    },
-    {
-      "id": "pizza-cheese",
-      "name": "Cheese Corn Pizza Momos",
-      "category": "pizza",
-      "type": "cheese-corn",
-      "price": {
-        "half": 120,
-        "full": 240
-      },
-      "halfPrice": 120,
-      "description": "Ultimate pizza momos with extra cheese",
-      "image": "/images/stock/fusion.jpg",
-      "new": true,
-      "spiceLevel": "hot",
       "isAvailable": true,
       "isPopular": false,
       "isNew": true
@@ -295,6 +221,20 @@
       "isAvailable": true,
       "isPopular": true,
       "isNew": true
+    },
+    {
+      "id": "kurkure-soya",
+      "name": "Kurkure Soya Momos",
+      "category": "kurkure",
+      "type": "soya",
+      "price": {
+        "half": 50,
+        "full": 100
+      },
+      "halfPrice": 50,
+      "description": "Crunchy crumb coating with a savoury soya filling",
+      "image": "/images/outlet/kurkure.webp",
+      "isAvailable": true
     }
   ]
 }

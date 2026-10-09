@@ -1,7 +1,7 @@
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'steamed' | 'fried' | 'kurkure' | 'pizza' | 'combo';
+  category: 'steamed' | 'fried' | 'kurkure' | 'combo';
   type: 'veg' | 'paneer' | 'soya' | 'cheese-corn' | 'mixed';
   price: number; // Full plate price (10pc)
   halfPrice: number; // Half plate price (5pc)
@@ -80,7 +80,7 @@ export const menuItems: MenuItem[] = [
     category: 'fried',
     type: 'paneer',
     price: 80,
-    halfPrice: 46,
+    halfPrice: 40,
     description: 'Crispy fried momos with paneer filling',
     image: '/images/stock/fried.jpg',
     spiceLevel: 'medium',
@@ -101,7 +101,7 @@ export const menuItems: MenuItem[] = [
     name: 'Cheese Corn Fried Momos',
     category: 'fried',
     type: 'cheese-corn',
-    price: 119,
+    price: 110,
     halfPrice: 55,
     description: 'Fried momos with cheese and corn',
     image: '/images/stock/fried.jpg',
@@ -115,8 +115,8 @@ export const menuItems: MenuItem[] = [
     type: 'veg',
     price: 100,
     halfPrice: 50,
-    description: 'Our signature crispy, crunchy Kurkure momos - First in Bihar!',
-    image: '/images/stock/fried.jpg',
+    description: 'Our signature crispy, crunchy Kurkure momos',
+    image: '/images/outlet/kurkure.webp',
     popular: true,
     spicy: true,
     spiceLevel: 'hot',
@@ -129,11 +129,12 @@ export const menuItems: MenuItem[] = [
     price: 120,
     halfPrice: 60,
     description: 'Kurkure coating with creamy paneer filling',
-    image: '/images/stock/fried.jpg',
+    image: '/images/outlet/kurkure.webp',
     popular: true,
     spicy: true,
     spiceLevel: 'hot',
   },
+  {id: 'kurkure-soya', name:'Kurkure Soya Momos',category:'kurkure',type:'soya',price:100,halfPrice:50,description:'Crunchy crumb coating with a savoury soya filling',image:'/images/outlet/kurkure.webp',spiceLevel:'hot'},
   {
     id: 'kurkure-cheese',
     name: 'Kurkure Cheese Corn Momos',
@@ -148,55 +149,6 @@ export const menuItems: MenuItem[] = [
     spiceLevel: 'extra-magic',
   },
 
-  {
-    id: 'pizza-veg',
-    name: 'Veg Pizza Momos',
-    category: 'pizza',
-    type: 'veg',
-    price: 160,
-    halfPrice: 80,
-    description: 'Innovative fusion of pizza and momos',
-    image: '/images/stock/fusion.jpg',
-    new: true,
-    spiceLevel: 'medium',
-  },
-  {
-    id: 'pizza-paneer',
-    name: 'Paneer Pizza Momos',
-    category: 'pizza',
-    type: 'paneer',
-    price: 200,
-    halfPrice: 100,
-    description: 'Pizza momos with paneer topping',
-    image: '/images/stock/fusion.jpg',
-    new: true,
-    popular: true,
-    spiceLevel: 'medium',
-  },
-  {
-    id: 'pizza-soya',
-    name: 'Soya Pizza Momos',
-    category: 'pizza',
-    type: 'soya',
-    price: 180,
-    halfPrice: 90,
-    description: 'Pizza momos with soya filling',
-    image: '/images/stock/fusion.jpg',
-    new: true,
-    spiceLevel: 'hot',
-  },
-  {
-    id: 'pizza-cheese',
-    name: 'Cheese Corn Pizza Momos',
-    category: 'pizza',
-    type: 'cheese-corn',
-    price: 240,
-    halfPrice: 120,
-    description: 'Ultimate pizza momos with extra cheese',
-    image: '/images/stock/fusion.jpg',
-    new: true,
-    spiceLevel: 'hot',
-  },
   {
     id: 'combo-platter',
     name: 'Momos Magic Combo Platter',
@@ -233,13 +185,6 @@ export const categories = [
     description: 'Sherghati Exclusive',
     icon: '✨',
     color: 'golden-glow',
-  },
-  {
-    id: 'pizza',
-    name: 'Fusion Innovations',
-    description: 'Innovative Fusion',
-    icon: '🍕',
-    color: 'premium-orange',
   },
   {
     id: 'combo',

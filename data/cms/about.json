@@ -9,7 +9,6 @@
       "Dhruv Gupta, a young entrepreneur from Sherghati, Bihar, refused to settle for the ordinary. Tired of the 9-to-5 rat race, he believed in the philosophy: 'Why be an employee when you can be an employer?' In September 2023, with dreams bigger than his pocket, he started with a small stall in Naya Bazar.",
       "His first venture featured 'Pita' - a traditional Bihari delicacy made from rice and lentils, fried to perfection. While the dish held cultural significance, the market response was lukewarm. For two months, Dhruv watched as customers passed by, unaware of this hidden gem. It became clear - sometimes the best recipes need the right audience.",
       "Undeterred by initial setbacks, Dhruv pivoted to momos - a universally loved street food. But these weren't ordinary momos. He infused them with the same passion and quality standards he maintained for his traditional recipes. The small stall began attracting attention, and soon 'Momos Magic' became the talk of Sherghati.",
-      "As demand skyrocketed, Dhruv introduced innovations that set Momos Magic apart: Kurkure Momos - a crispy, crunchy variation nobody else offered; Pizza Momos - fusion creativity that became an instant hit; and a Premium Stall Design - transforming from basic to branded excellence.",
       "From that humble stall in September 2023 to a premium branded experience in 2025, Momos Magic now stands as testament to Dhruv's belief: 'Better to be a small owner than someone else's employee.' The magic continues to spread, one momo at a time."
     ]
   },
@@ -20,32 +19,32 @@
       {
         "title": "Quality Over Quantity",
         "description": "Every momo is handcrafted with premium ingredients. We never compromise on quality, even if it means serving fewer customers.",
-        "icon": "⭐"
+        "icon": "\u2b50"
       },
       {
         "title": "Innovation with Tradition",
-        "description": "We respect traditional recipes while constantly innovating. Our Kurkure and Pizza Momos are perfect examples of this balance.",
-        "icon": "💡"
+        "description": "We respect traditional recipes while constantly innovating. Our Kurkure are perfect examples of this balance.",
+        "icon": "\ud83d\udca1"
       },
       {
         "title": "Customer First",
         "description": "Your satisfaction is our success. We listen to feedback and continuously improve our offerings based on what you love.",
-        "icon": "❤️"
+        "icon": "\u2764\ufe0f"
       },
       {
         "title": "Hygiene & Safety",
         "description": "FSSAI certified kitchen with strict hygiene protocols. Your health and safety are our top priorities.",
-        "icon": "✅"
+        "icon": "\u2705"
       },
       {
         "title": "Fair Pricing",
         "description": "Premium quality at affordable prices. We believe everyone deserves to enjoy great food without breaking the bank.",
-        "icon": "💰"
+        "icon": "\ud83d\udcb0"
       },
       {
         "title": "Community Impact",
         "description": "We source locally, employ locally, and give back to our community. Your purchase supports local families.",
-        "icon": "🤝"
+        "icon": "\ud83e\udd1d"
       }
     ]
   },
@@ -73,7 +72,7 @@
     {
       "date": "December 2024",
       "title": "Expansion",
-      "description": "Upgraded to premium branded stall. Introduced Pizza Momos and expanded menu to 15+ varieties"
+      "description": "Upgraded to premium branded stall. Introduced and expanded menu to 15+ varieties"
     },
     {
       "date": "March 2025",

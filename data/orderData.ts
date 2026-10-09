@@ -13,7 +13,7 @@ export interface User {
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'steamed' | 'fried' | 'kurkure' | 'pizza';
+  category: 'steamed' | 'fried' | 'kurkure';
   price5pc: number;
   price10pc: number;
   description: string;
@@ -90,7 +90,7 @@ export const orderStatusFlow = {
 };
 
 export const pricingConfig = {
-  taxRate: 0.05, // 5% GST
+  taxRate: 0, // 5% GST
   deliveryCharge: 0, // Currently takeaway only
   minOrderValue: 0,
   firstOrderDiscount: 0.5, // 50% OFF

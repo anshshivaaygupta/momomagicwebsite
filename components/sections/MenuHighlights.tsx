@@ -50,18 +50,18 @@ const categories = [
     description: 'Our exclusive Kurkure momos - crispy, crunchy, and magical',
   },
   {
-    id: 'pizza',
+    id: 'kurkure',
     name: 'Fusion Innovations',
     highlight: 'Innovative Fusion',
     icon: '🍕',
     color: 'premium-orange',
     items: [
-      { name: 'Veg Pizza', price: '₹80 (5pc) | ₹160 (10pc)' },
-      { name: 'Paneer Pizza', price: '₹100 (5pc) | ₹200 (10pc)' },
-      { name: 'Soya Pizza', price: '₹90 (5pc) | ₹180 (10pc)' },
-      { name: 'Cheese Corn Pizza', price: '₹120 (5pc) | ₹240 (10pc)' },
+      { name: 'Veg Kurkure', price: '₹80 (5pc) | ₹160 (10pc)' },
+      { name: 'Paneer Kurkure', price: '₹100 (5pc) | ₹200 (10pc)' },
+      { name: 'Soya Kurkure', price: '₹90 (5pc) | ₹180 (10pc)' },
+      { name: 'Cheese Corn Kurkure', price: '₹120 (5pc) | ₹240 (10pc)' },
     ],
-    description: 'Revolutionary Pizza Momos - a fusion like never before',
+    description: 'Revolutionary Kurkure Momos - a fusion like never before',
   },
 ];
 
@@ -106,7 +106,7 @@ export const MenuHighlights: React.FC = () => {
             { id: 'steamed', name: 'Steamed', icon: '🥟' },
             { id: 'fried', name: 'Fried', icon: '🔥' },
             { id: 'kurkure', name: 'Kurkure', icon: '✨' },
-            { id: 'pizza', name: 'Pizza', icon: '🍕' },
+            { id: 'kurkure', name: 'Kurkure', icon: '🍕' },
           ].map((filter) => (
             <motion.button
               key={filter.id}
@@ -159,7 +159,7 @@ export const MenuHighlights: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <img src={`/images/stock/${category.id==='steamed'?'steamed':category.id==='pizza'?'fusion':'fried'}.jpg`} alt={`${category.name} — representative stock photograph`} className="w-full h-full object-cover" loading="lazy"/>
+                    <img src={`/images/stock/${category.id==='steamed'?'steamed':category.id==='kurkure'?'fusion':'fried'}.jpg`} alt={`${category.name}graph`} className="w-full h-full object-cover" loading="lazy"/>
                   </motion.div>
 
                   {/* Category Info */}

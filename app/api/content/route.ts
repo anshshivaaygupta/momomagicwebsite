@@ -1,3 +1,4 @@
+import { sanitizePublicContent } from '@/lib/catalog';
 import { NextRequest, NextResponse } from 'next/server';
 import { queryOne } from '@/lib/db';
 import fs from '@/lib/storage';
@@ -12,6 +13,6 @@ export async function GET(request:NextRequest){
    try{data=JSON.parse(await fs.readFile(path.join(process.cwd(),'data','cms',section+'.json')));}catch{data={};}
   }else{const row=await queryOne('SELECT content_data FROM published_content WHERE page_name=?',[section])||await queryOne('SELECT content_data FROM cms_content WHERE page_name=?',[section]);data=row?JSON.parse(row.content_data):{};}
   if(section==='catering'){const {inquiries,bookings,applications,...safe}=data;data=safe;}
-  return NextResponse.json(data,{headers:{'Cache-Control':'no-store'}});
+  return NextResponse.json(sanitizePublicContent(data),{headers:{'Cache-Control':'no-store'}});
  }catch{return NextResponse.json({error:'Content temporarily unavailable'},{status:503});}
 }

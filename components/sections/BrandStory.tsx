@@ -123,7 +123,7 @@ export const BrandStory: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               whileHover={{ scale: 1.02 }}
             >
-              <figure><img src="/images/stock/steamed.jpg" alt="Representative stock photograph of momos" className="w-full aspect-video object-cover" loading="lazy"/><figcaption className="p-3 text-center text-sm text-foreground/70">A taste of our inspiration · Representative stock photo</figcaption></figure>
+              <figure><img src="/images/stock/steamed.jpg" alt="Momos with dipping sauce" className="w-full aspect-video object-cover" loading="lazy"/></figure>
             </motion.div>
           </motion.div>
 
@@ -167,7 +167,7 @@ export const BrandStory: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ scale: 1.02 }}
             >
-              <figure><img src="/images/stock/platter.jpg" alt="Representative stock photograph of momos" className="w-full aspect-video object-cover" loading="lazy"/><figcaption className="p-3 text-center text-sm text-foreground/70">Made for sharing · Representative stock photo</figcaption></figure>
+              <figure><img src="/images/stock/platter.jpg" alt="Momos with dipping sauce" className="w-full aspect-video object-cover" loading="lazy"/></figure>
             </motion.div>
           </motion.div>
         </div>

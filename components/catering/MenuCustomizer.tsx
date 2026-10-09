@@ -11,13 +11,12 @@ interface MenuCustomizerProps {
 }
 
 export const MenuCustomizer: React.FC<MenuCustomizerProps> = ({ selectedItems, onItemsChange }) => {
-  const [activeCategory, setActiveCategory] = useState<'steamed' | 'fried' | 'kurkure' | 'pizza' | 'addons'>('steamed');
+  const [activeCategory, setActiveCategory] = useState<'steamed' | 'fried' | 'kurkure' | 'addons'>('steamed');
 
   const categories = [
     { id: 'steamed' as const, name: 'Steamed Momos', icon: '🥟' },
     { id: 'fried' as const, name: 'Fried Momos', icon: '🔥' },
     { id: 'kurkure' as const, name: 'Kurkure Momos', icon: '✨' },
-    { id: 'pizza' as const, name: 'Pizza Momos', icon: '🍕' },
     { id: 'addons' as const, name: 'Add-ons', icon: '🎯' },
   ];
 
@@ -185,3 +184,4 @@ export const MenuCustomizer: React.FC<MenuCustomizerProps> = ({ selectedItems, o
     </section>
   );
 };
+
