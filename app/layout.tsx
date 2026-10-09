@@ -7,10 +7,10 @@ import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "Momos Magic - Best Momos in Sherghati, Bihar | Award-Winning Quality",
+    default: "Momo Magic | Steamed, Fried & Kurkure Momos in Sherghati",
     template: "%s | Momos Magic",
   },
-  description: "Experience the Magic That Transformed Sherghati's Street Food Scene. Award-winning momos, FSSAI certified, 100% vegetarian. First to introduce Kurkure Momos in Bihar. Order now!",
+  description: "Vegetarian steamed, fried and Kurkure momos in Naya Bazar, Sherghati. Browse the menu, plan a visit or request takeaway and catering on WhatsApp.",
   keywords: [
     "momos",
     "Sherghati momos",
@@ -19,9 +19,7 @@ export const metadata: Metadata = {
     "kurkure momos",
     "vegetarian momos",
     "FSSAI certified momos",
-    "award-winning momos",
     "Momos Magic",
-    "Dhruv Gupta",
     "Naya Bazar Sherghati",
     "food delivery Sherghati",
     "best food in Sherghati",
@@ -40,7 +38,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
-    description: "Award-winning momos, FSSAI certified, 100% vegetarian. First to introduce Kurkure Momos in Bihar.",
+    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu and order takeaway on WhatsApp.",
     url: "https://momo-magic-website.vercel.app",
     siteName: "Momos Magic",
     images: [
@@ -57,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
-    description: "Award-winning momos, FSSAI certified, 100% vegetarian. First to introduce Kurkure Momos in Bihar.",
+    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu and order takeaway on WhatsApp.",
     images: ["/images/stock/platter.jpg"],
   },
   robots: {

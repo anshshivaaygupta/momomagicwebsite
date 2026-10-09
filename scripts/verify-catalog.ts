@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {isAvailableItem,readCart,sanitizePublicContent} from '../lib/catalog';
+import {whatsappUrl} from '../lib/business';
+const saved=JSON.stringify([{menuItem:{id:'pizza-veg',name:'Pizza momos'},quantity:5,subtotal:80},{menuItem:{id:'steamed-veg',name:'Veg Steamed Momos'},quantity:5,subtotal:25}]);
+let value=saved;Object.assign(globalThis,{sessionStorage:{getItem:()=>value,setItem:(_key:string,v:string)=>{value=v}}});
+assert.equal(readCart().length,1);assert.ok(!value.includes('pizza'));
+value='{invalid';assert.deepEqual(readCart(),[]);
+assert.equal(isAvailableItem({id:'pizza-paneer',isAvailable:true}),false);
+assert.equal(isAvailableItem({id:'steamed-veg',state:'archived'}),false);
+assert.deepEqual(sanitizePublicContent({items:[{id:'pizza-veg'},{id:'steamed-veg'}],categories:['pizza','steamed']}),{items:[{id:'steamed-veg'}],categories:['steamed']});
+const url=new URL(whatsappUrl('Booking request',{Name:'Website QA',Guests:50,Date:'2027-01-20',Notes:'Extra sauce & plates'}));
+assert.equal(url.hostname,'wa.me');assert.equal(url.pathname,'/919955955191');assert.match(url.searchParams.get('text')!,/Guests: 50/);assert.match(url.searchParams.get('text')!,/Extra sauce & plates/);assert.match(url.searchParams.get('text')!,/Please confirm availability/);
+console.log('PASS: retired-item filtering, malformed carts, archived items, public data sanitization and encoded WhatsApp booking details');

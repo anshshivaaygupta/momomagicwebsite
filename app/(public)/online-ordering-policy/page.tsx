@@ -59,7 +59,7 @@ export default function OnlineOrderingPolicyPage() {
                 </div>
                 <h5 className="text-lg font-bold mb-2 text-golden-glow">Menu Selection</h5>
                 <p className="text-gray-300 text-sm">
-                  Browse available items with real-time stock status
+                  Browse listed menu items; the business confirms current availability
                 </p>
               </div>
 
@@ -79,7 +79,7 @@ export default function OnlineOrderingPolicyPage() {
                 </div>
                 <h5 className="text-lg font-bold mb-2 text-golden-glow">Payment</h5>
                 <p className="text-gray-300 text-sm">
-                  Secure payment through PhonePe integration
+                  Payment is arranged directly with the business after confirmation
                 </p>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function OnlineOrderingPolicyPage() {
                   <ul className="space-y-2 text-gray-300">
                     <li className="flex items-start gap-3">
                       <span className="text-vegetarian-green mt-1">✓</span>
-                      <span>PhonePe integration with PCI-DSS compliance</span>
+                      <span>The website does not collect payment details</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-vegetarian-green mt-1">✓</span>

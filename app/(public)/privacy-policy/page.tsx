@@ -179,7 +179,7 @@ export default function PrivacyPolicyPage() {
                 <div className="text-4xl">💳</div>
                 <div>
                   <h5 className="text-xl font-bold mb-2 text-golden-glow">Secure Payments</h5>
-                  <p className="text-gray-300">Payment processing through PCI-DSS compliant payment gateways (PhonePe)</p>
+                  <p className="text-gray-300">The website sends order requests to WhatsApp and does not process payments</p>
                 </div>
               </div>
             </div>
