@@ -20,7 +20,7 @@ export default function RefundCancellationPage() {
             Refund & Cancellation Policy
           </h1>
           <p className="text-golden-glow text-lg mb-2">
-            Last Updated: January 15, 2025
+            Updated: October 10, 2026
           </p>
           <p className="text-gray-300 text-lg">
             Clear guidelines for order cancellations and refund processing.
@@ -60,7 +60,7 @@ export default function RefundCancellationPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-vegetarian-green mt-1">✓</span>
-                      <span>Instant refund processing</span>
+                      <span>Refund timing depends on the payment provider</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-vegetarian-green mt-1">✓</span>

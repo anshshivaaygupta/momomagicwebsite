@@ -43,7 +43,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''))) { alert('Enter a valid 10-digit Indian mobile number.'); return; }
-    openWhatsApp('Catering booking request',{'Name':formData.fullName,'Phone':formData.phone,'Email':formData.email,'Event':formData.eventType,'Guests':formData.guestCount,'Date':formData.eventDate,'Venue':formData.eventLocation,'Package':cateringPackages.find((p:any)=>p.id===formData.packageId)?.name||'Custom','Estimated cost':bookingEstimate||'Please quote','Requirements':formData.additionalRequirements});
+    openWhatsApp('Catering quote enquiry',{'Name':formData.fullName,'Phone':formData.phone,'Email':formData.email,'Event':formData.eventType,'Guests':formData.guestCount,'Date':formData.eventDate,'Venue':formData.eventLocation,'Package':cateringPackages.find((p:any)=>p.id===formData.packageId)?.name||'Custom','Estimated cost':bookingEstimate||'Please quote','Requirements':formData.additionalRequirements});
   };
 
   return (

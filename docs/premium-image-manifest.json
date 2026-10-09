@@ -1,0 +1,18 @@
+{
+  "generation": "Built-in image generation; distinct prompt per image. Assets are food illustrations, not evidence of actual serving presentation.",
+  "images": {
+    "hero": "20500727-5549-451b-b8b3-63ee03525785",
+    "steamed-veg": "029bc0af-3fe5-41fb-b254-558bc97fa682",
+    "steamed-paneer": "2a0ff4a8-f67d-4051-b4ca-d89f241001a7",
+    "steamed-soya": "685db738-b392-4764-8789-154fa60eb9fc",
+    "steamed-cheese": "ad6a37bc-4f3b-43e7-9cf5-de25e7f458da",
+    "fried-veg": "423072bb-633f-4a68-879d-ab0ffc43cdd8",
+    "fried-paneer": "3eae8c4b-3584-4093-b7d9-e40c64d9d2dc",
+    "fried-soya": "4f39b0f0-320f-459f-a043-2f5d53a520ee",
+    "fried-cheese": "bbe382aa-2cfb-4267-a0ef-961431d03e9f",
+    "kurkure-veg": "22e60369-c678-4674-a330-b645f246fcfb",
+    "kurkure-paneer": "a14a26e8-d04d-43ca-aadc-45d7fd90a2bd",
+    "kurkure-soya": "4ef20325-0516-4790-a002-365ae259076a",
+    "kurkure-cheese": "4264c70d-f0f5-4ed3-ba9d-d1d1a50b6b0a"
+  }
+}

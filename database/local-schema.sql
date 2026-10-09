@@ -206,3 +206,13 @@ CREATE TABLE IF NOT EXISTS ab_test_variants(id TEXT PRIMARY KEY,test_id TEXT,nam
 CREATE TABLE IF NOT EXISTS ab_test_metrics(id TEXT PRIMARY KEY,test_id TEXT,variant_id TEXT,views INTEGER DEFAULT 0,conversions INTEGER DEFAULT 0);
 CREATE TABLE IF NOT EXISTS customer_accounts(id INTEGER PRIMARY KEY AUTOINCREMENT,email TEXT UNIQUE,phone TEXT,name TEXT,password_hash TEXT,created_at TEXT DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS login_attempts(identifier TEXT PRIMARY KEY,attempts INTEGER,reset_at INTEGER);
+CREATE TABLE IF NOT EXISTS checkout_sessions (
+ id TEXT PRIMARY KEY,
+ access_hash TEXT NOT NULL,
+ payload TEXT NOT NULL,
+ amount INTEGER NOT NULL,
+ provider_order TEXT UNIQUE,
+ payment_id TEXT,
+ status TEXT NOT NULL DEFAULT 'pending',
+ created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

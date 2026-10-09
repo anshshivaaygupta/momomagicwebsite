@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Momo Magic | Steamed, Fried & Kurkure Momos in Sherghati",
     template: "%s | Momos Magic",
   },
-  description: "Vegetarian steamed, fried and Kurkure momos in Naya Bazar, Sherghati. Browse the menu, plan a visit or request takeaway and catering on WhatsApp.",
+  description: "Vegetarian steamed, fried and Kurkure momos in Naya Bazar, Sherghati. Browse the menu, plan a visit, explore takeaway and enquire about catering.",
   keywords: [
     "momos",
     "Sherghati momos",
@@ -18,10 +18,8 @@ export const metadata: Metadata = {
     "best momos in Sherghati",
     "kurkure momos",
     "vegetarian momos",
-    "FSSAI certified momos",
     "Momos Magic",
     "Naya Bazar Sherghati",
-    "food delivery Sherghati",
     "best food in Sherghati",
   ],
   authors: [{ name: "Momos Magic", url: "https://momo-magic-website.vercel.app" }],
@@ -38,12 +36,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
-    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu and order takeaway on WhatsApp.",
+    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu, takeaway and catering.",
     url: "https://momo-magic-website.vercel.app",
     siteName: "Momos Magic",
     images: [
       {
-        url: "/images/stock/platter.jpg",
+        url: "/images/premium/hero.webp",
         width: 1200,
         height: 630,
         alt: "Momos Magic - Best Momos in Sherghati",
@@ -55,8 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Momos Magic - Best Momos in Sherghati, Bihar",
-    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu and order takeaway on WhatsApp.",
-    images: ["/images/stock/platter.jpg"],
+    description: "Vegetarian momos at Naya Bazar, Sherghati. Explore our menu, takeaway and catering.",
+    images: ["/images/premium/hero.webp"],
   },
   robots: {
     index: true,
