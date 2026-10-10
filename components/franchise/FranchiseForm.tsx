@@ -74,7 +74,7 @@ export function FranchiseForm() {
     <section id="franchise-form" className="py-20 bg-pitch-black">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -92,7 +92,7 @@ export function FranchiseForm() {
 
         <div className="max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -120,9 +120,9 @@ export function FranchiseForm() {
                 {currentStep === 1 && (
                   <motion.div
                     key="step1"
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    exit={{ x: -50 }}
                     transition={{ duration: 0.3 }}
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Personal Information</h3>
@@ -183,9 +183,9 @@ export function FranchiseForm() {
                 {currentStep === 2 && (
                   <motion.div
                     key="step2"
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    exit={{ x: -50 }}
                     transition={{ duration: 0.3 }}
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Business Preferences</h3>
@@ -264,9 +264,9 @@ export function FranchiseForm() {
                 {currentStep === 3 && (
                   <motion.div
                     key="step3"
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    exit={{ x: -50 }}
                     transition={{ duration: 0.3 }}
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Additional Information</h3>
@@ -348,7 +348,7 @@ export function FranchiseForm() {
               {/* Submit Message */}
               {submitMessage && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-center"
                 >

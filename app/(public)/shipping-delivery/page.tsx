@@ -11,7 +11,7 @@ export default function ShippingDeliveryPage() {
       <LegalNotes slug="shipping-delivery"/>
       {/* Hero Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         className="bg-gradient-to-b from-charcoal to-pitch-black py-20 px-4"
       >
@@ -31,7 +31,7 @@ export default function ShippingDeliveryPage() {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
           className="space-y-12"

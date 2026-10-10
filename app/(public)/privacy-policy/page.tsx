@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
       <LegalNotes slug="privacy-policy"/>
       {/* Hero Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         className="bg-gradient-to-b from-charcoal to-pitch-black py-20 px-4"
       >
@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
       {/* Table of Contents */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="bg-charcoal rounded-lg p-6 mb-8 border border-premium-orange/20"
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
 
         {/* Main Content */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="space-y-12"

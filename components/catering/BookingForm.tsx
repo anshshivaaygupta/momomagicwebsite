@@ -51,7 +51,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -261,7 +261,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedPackageId, est
                     ? 'bg-vegetarian-green/20 border border-vegetarian-green'
                     : 'bg-warm-orange/20 border border-warm-orange'
                 }`}
-                initial={{ opacity: 0, y: -10 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
               >
                 <p className="text-foreground">{submitMessage}</p>
