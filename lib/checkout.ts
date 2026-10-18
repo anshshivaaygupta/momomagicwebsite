@@ -1,9 +1,10 @@
+import {youpiReady} from './youpi';
 import {createHash,createHmac,timingSafeEqual} from 'node:crypto';
 import path from 'node:path';
 import {readFile} from '@/lib/storage';
 import {isAvailableItem} from '@/lib/catalog';
 import {queryOne,query} from '@/lib/db';
-export function paymentEnabled(){return process.env.PAYMENT_PROVIDER==='razorpay'&&process.env.PAYMENTS_ENABLED==='true'&&!!process.env.RAZORPAY_KEY_ID&&!!process.env.RAZORPAY_KEY_SECRET;}
+export function paymentEnabled(){return youpiReady()||process.env.PAYMENT_PROVIDER==='razorpay'&&process.env.PAYMENTS_ENABLED==='true'&&!!process.env.RAZORPAY_KEY_ID&&!!process.env.RAZORPAY_KEY_SECRET;}
 export const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
 export function validSignature(order:string,payment:string,signature:string,secret:string){if(!/^[a-f0-9]{64}$/i.test(signature))return false;const expected=createHmac('sha256',secret).update(order+'|'+payment).digest();return timingSafeEqual(expected,Buffer.from(signature,'hex'));}
 export async function pricedOrder(body:any){
@@ -15,6 +16,6 @@ export async function pricedOrder(body:any){
 }
 export async function gateway(endpoint:string,body?:unknown){const res=await fetch('https://api.razorpay.com/v1/'+endpoint,{method:body?'POST':'GET',headers:{Authorization:'Basic '+Buffer.from(process.env.RAZORPAY_KEY_ID+':'+process.env.RAZORPAY_KEY_SECRET).toString('base64'),'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined,cache:'no-store',signal:AbortSignal.timeout(15000)});if(!res.ok)throw Error('Payment service temporarily unavailable. Please retry.');return res.json();}
 export async function sessionFor(cookie:string|undefined){if(!cookie)return null;const [id,token]=cookie.split('.');if(!id||!token)return null;return queryOne('SELECT * FROM checkout_sessions WHERE id=? AND access_hash=?',[id,hash(token)]);}
-export async function reconcile(session:any){if(session.status==='paid')return session;if(!session.provider_order||!paymentEnabled())return session;const payments=await gateway('orders/'+encodeURIComponent(session.provider_order)+'/payments');const paid=payments.items?.find((p:any)=>p.status==='captured'&&p.order_id===session.provider_order&&p.currency==='INR'&&p.amount===session.amount&&p.amount_refunded===0);if(paid){await query("UPDATE checkout_sessions SET status='paid',payment_id=? WHERE id=? AND status='pending'",[paid.id,session.id]);return {...session,status:'paid',payment_id:paid.id}}return session;}
+export async function reconcile(session:any){if(session.status==='paid')return session;if(session.provider_order?.startsWith('youpi:'))return session;if(!session.provider_order||!paymentEnabled()||process.env.PAYMENT_PROVIDER!=='razorpay')return session;const payments=await gateway('orders/'+encodeURIComponent(session.provider_order)+'/payments');const paid=payments.items?.find((p:any)=>p.status==='captured'&&p.order_id===session.provider_order&&p.currency==='INR'&&p.amount===session.amount&&p.amount_refunded===0);if(paid){await query("UPDATE checkout_sessions SET status='paid',payment_id=? WHERE id=? AND status='pending'",[paid.id,session.id]);return {...session,status:'paid',payment_id:paid.id}}return session;}
 
 export function sameOrigin(req:Request){try{return new URL(req.headers.get('origin')||'').host===req.headers.get('host')}catch{return false}}

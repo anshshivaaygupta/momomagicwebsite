@@ -216,3 +216,5 @@ CREATE TABLE IF NOT EXISTS checkout_sessions (
  status TEXT NOT NULL DEFAULT 'pending',
  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+-- A bank reference cannot pay two orders, including concurrent webhook deliveries.
+CREATE UNIQUE INDEX IF NOT EXISTS checkout_payment_reference_unique ON checkout_sessions(payment_id) WHERE payment_id IS NOT NULL;
